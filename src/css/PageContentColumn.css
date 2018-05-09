@@ -1,0 +1,15 @@
+.page-content-holder{
+    float: left;
+    margin-bottom: 30px;
+    border-radius: var(--reacttabs-border-radius);
+    background-color: var(--pagecontentcolumn-bg-color);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
+    font-family: var(--font-1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--pagecontentcolumn-color);
+    width: 100%;
+  }
+
+.page-content-holder h1 {margin-left: 20px; margin-top:15px;}
+.page-content-holder .entry-content {margin-left:20px;}

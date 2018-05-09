@@ -1,0 +1,6 @@
+{"routes":[
+    {
+        "route": "/_lang/:lang/profile",
+        "name": "profile"
+    }
+]}

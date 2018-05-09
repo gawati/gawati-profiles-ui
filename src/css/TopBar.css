@@ -1,0 +1,136 @@
+.nav-brand{
+display:inline-block;
+vertical-align:top;
+margin-left:14px;
+}
+
+.nav-brand .logo-img{
+width:90px;
+}
+
+.logotype{
+display:inline-block;
+vertical-align:top;
+}
+
+.logotype h1{
+font-size:1.6rem;
+color: var(--logo-color);
+}
+
+.logotype h2{
+margin-top: -12px;
+margin-bottom: 0px;
+font-size:1.4rem;
+letter-spacing: 0.07rem;
+color: var(--logo-color2);
+}
+.logo-img {
+    background-image: var(--logo-img);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50px; /*or your image's height*/
+    margin: 0;
+    padding: 0;
+    width: 90px; /*or your image's width*/
+    display: inline-block;
+}
+.search-form-container {
+float:right;
+display: inline-block;
+margin: 14px auto 20px;
+vertical-align: top;
+margin-right:25px;
+
+}
+
+.navigation-bar{
+width:100%;
+min-width: 400px;
+float: left;
+padding-bottom: 0;
+background: var(--topbar-bg);
+box-shadow: var(--topbar-box-shadow);
+}
+
+.navigation-bar .version-info {
+    padding: 5px;
+    float: left;
+    background-color: var(--section-bg-color);
+    color: var(--topbar-bg);
+    margin-left: 50px;
+}
+.submit-button {
+    width: 50px;
+    height: 40px;
+    background-color: var(--topbar-submit-button-bg-color);
+}
+/* Warning bell */
+    .document-warning{
+    margin-bottom: 10px;
+    font-size: 12px;
+    margin-top: 12px;
+    }
+/* Warning bell */
+
+.mobile-button{
+  display: none;
+}
+.inline-elements{
+	display: flex;
+}
+.or{
+	font-size: 12px;
+	opacity: 0.5
+}
+.click{
+	cursor: pointer;
+}
+
+.dropbtn {
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 0;
+    z-index: 1;
+    color:lightgray;
+    background: white; 
+}
+
+.dropdown-content button {
+    width: 100%;
+    color: black;
+    padding: 12px 14px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content button:hover {
+	text-decoration: none;
+	background: gray;
+	color: white; 
+}
+
+.loggedIn{
+	text-decoration: none;
+	background: white;
+	color: black !important;
+}
+
+.show {display:block;}

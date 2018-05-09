@@ -1,0 +1,10 @@
+img.docThumb {
+    border:1px solid;
+    float: left;
+    width: 100%;
+    width: auto;
+    height: auto;
+    max-height:270px;
+    margin-right: 2%;
+    margin-top: 10px
+}

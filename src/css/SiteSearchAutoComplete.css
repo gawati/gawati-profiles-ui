@@ -1,0 +1,58 @@
+.ui-ac-item-render {
+  font-family: var(--font-1);
+  font-size: 13px;
+  text-transform:capitalize;
+}
+
+.ui-act-item-meta nav {float:left;}
+
+.ui-ac-item-render-content{
+  margin-left: 15px;
+  text-align: left;
+}
+
+.ui-ac-item-render-content h3 {
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+li.ui-ac-item:hover ,.ui-ac-item-render:hover, .ui-ac-item-render-content:hover  {
+  background-color: var(-sitesearc-li-bg-color);
+}
+
+.ui-act-item-meta ol {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.ui-act-item-meta li {
+  display: inline;
+  text-transform: uppercase;
+  color: var(--sitesearch-li-color);
+  /* white-space: nowrap should be moved to child A because IE fails to wrap resulting list completely */
+}
+.ui-act-item-meta li::before {
+  content: ' ';
+  /*
+  this content is important only for Crome in case the HTML will be minified with no whitespaces between </li><li>
+  */
+}
+.ui-act-item-meta li::after {
+  content: ' ';
+  white-space: normal;
+  word-spacing: 1em; 
+  background-image: var(--sitesearch-bg-image);
+  background-size: .5em .5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.5;
+}
+
+input[data-loading="yes"] {
+  background-color: var(--sitesearch-loading-bg-color);
+  background-image: var(--sitesearch-loading-bg-image);
+  background-size: 25px 25px;
+  background-position:right center;
+  background-repeat: no-repeat;
+}

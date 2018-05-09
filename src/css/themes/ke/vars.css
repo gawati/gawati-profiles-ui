@@ -1,0 +1,123 @@
+:root {
+    
+  /* Overrides */
+    --overrides-breadcrumb-color: rgba(51, 51, 51, .67);
+    --overrides-p-color: #74737a;
+    --overrides-a-color: #a9a9a9;
+    --overrides-a-focus-color: #a9a9a9;
+    --overrides-h-color: #86201e; /* SIG */
+  /* Overrides */
+
+  /* Fonts */
+    --font-1: "Roboto Condensed", sans-serif;
+    --font-2: "Roboto Condensed", sans-serif;
+    --font-3: "Roboto Condensed", sans-serif;
+  /* Fonts */
+
+  /* app-custom */
+    /* content column - left column */
+      --main-col-position: right;
+      --content-grey-rule-bg-color: transparent;
+      --content-a-color: #3898EC;
+      --content-text-block-color: #74737a;
+      --content-button-bg-color: rgb(250, 162, 28);
+      --content-button-color: #fff;
+      --content-tab-pane-bg-color: #fff;
+      --content-search-result-bg-color: #fff;
+      --content-search-result-box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
+      --content-search-result-color: rgba(51, 51, 51, .67);
+      --content-search-result-h1-color: #74737a;
+      --content-doc-download-border-color: #000;
+
+    /* left column */
+  /* app-custom */
+
+  /* HomeContentColumn */
+  --home-wbutton-bg-color: rgb(250, 162, 28);
+  --home-wbutton-color: #fff;
+  
+  /* Footer */
+  --footer-bg-color: rgb(35, 35, 35);
+  --footer-color: #dddada;
+  --footer-a-color: #dddada;
+  --footer-submit-bg: rgb(250, 162, 28);
+  --footer-submit-color: #fff;
+  --footer-social-bg-color: white;
+  --footer-social-color: #010101;
+  --social-img-bg: #010101;
+
+  /* PageContentColumn */
+  --pagecontentcolumn-bg-color: #fff;
+  --pagecontentcolumn-color: rgba(51, 51, 51, .67);
+
+  /* PageUpperBorder - Retained for later use*/
+  /* --div-block-2-bg-color: #000;
+  --div-block-4-bg-color: #1abc9c;
+  --div-block-5-bg-color: #f2ca27;
+  --div-block-6-bg-color: #e67e22;
+  --div-block-7-bg-color: #16a085;
+  --div-block-8-bg-color: #2980b9;
+  --div-block-9-bg-color: #e74c3c;
+  --div-block-10-bg-color: #1abc9c; */
+
+  /* Paginator */
+  --paginator-li-bg-color: rgb(250, 162, 28);
+  --paginator-li-border-color: rgb(250, 162, 28);
+  --paginator-li-color: #20577d;
+  --paginator-li-disabled-color: #777;
+  --paginator-li-disabled-border-color: #ddd;
+
+  /* React tabs */
+  --reacttabs-bg-color: linear-gradient(to bottom, #2d2d2d 0%,#2b2b2b 30%,#292929 51%,#272727 75%,#252525 100%);;
+  --reacttabs-color: #fff!important;
+  --reacttabs-selected-bg-color: linear-gradient(to bottom, #2d2d2d 0%,#2b2b2b 30%,#292929 51%,#272727 75%,#252525 100%);;;
+  --reacttabs-selected-color: rgb(250, 162, 28);
+  --reacttabs-border: 0px !important;
+  --reacttabs-border-radius: 0px !important;
+  --reacttabs-bg-image: #2d2d2d url(../../themes/ke/assets/main-divider.jpg) no-repeat center right;
+  --reacttabs-hover-bg-color: black;
+  --reacttabs-hover-color: #f9a11b;
+
+  /* RecentDocs */
+  --feed-container-heading-bg-color: white;
+
+  /* Section */
+  --section-bg-color: #86201e; /* SIG */
+  --section-color: rgb(250, 162, 28);
+  --section-flex-dir: row-reverse;
+
+  /* Sidebar */
+  --sidebar-col-position: left;
+  --sidebar-footer-color: #aaa;
+  --sidebar-a-color: #a9a9a9;
+  --sidebar-bg-color: #fff;
+  --sidebar-box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
+  --sidebar-border-radius: 0px;
+  --sidebar-small-heading-color: #000;
+  --sidebar-small-heading-padding: 7px 0px 7px 10px;
+  --sidebar-small-heading-bg: rgb(250, 162, 28);
+
+  /* SiteSearchAutoComplete */
+  --autosuggest-color: #333333;
+  --sitesearch-li-color: #a9a9a9; 
+  --sitesearch-bg-image: radial-gradient(circle, black, black 7%, transparent 15%, transparent 35%, black 45%, black 48%, transparent 55%);
+  --sitesearch-loading-bg-image: url("http://loadinggif.com/images/image-selection/3.gif");
+  --sitesearch-loading-bg-color: #ffffff;
+
+  /* TopBar */
+  --topbar-bg: white;/* linear-gradient(rgb(45, 45, 45) 0%, rgb(43, 43, 43) 30%, rgb(41, 41, 41) 51%, rgb(39, 39, 39) 75%, rgb(37, 37, 37) 100%); */ /* SIG */ 
+  --topbar-box-shadow:  0 1px 0 0 rgba(0, 0, 0, .06);
+  --topbar-submit-button-bg-color: rgb(250, 162, 28);
+  --logo-img: url("../../themes/ke/assets/logo.png");
+  --logo-color: #231f20;
+  --logo-color2: #90292a;
+  --languageswitcher-highlight-bg-color: rgb(51, 51, 51);
+  --languageswitcher-bg-color: rgb(51, 51, 51);
+  --languageswitcher-color: #a9a9a9;
+
+  
+  /* Media */
+  --sidebar-left-margin: 0px;
+  --sidebar-right-margin: auto;
+ 
+}

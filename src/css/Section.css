@@ -1,0 +1,46 @@
+/** used by Section.js **/
+.section{
+    padding-top: 20px;
+    padding-bottom: 50px;
+    background-color: var(--section-bg-color);
+    color: var(--section-color);
+    width:100%;
+    min-width: 400px;
+    float: left;
+    overflow-x: auto;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float:right;
+}
+
+.sidebar-col.col-3{
+  font-family: var(--font-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #869aa7;
+  font-size: 13px;
+  padding-left:0;
+}
+
+.sidebar-col.col-3{
+  display: block;
+}
+
+.small-heading {
+  margin-top: 0px;
+  margin-bottom: 2px;
+  font-family: var(--font-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  /*line-height: 135%;*/
+  text-align: left;
+}
+#root > section > .container-fluid > .row {
+  flex-direction: var(--section-flex-dir);
+}
