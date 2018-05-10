@@ -9,9 +9,12 @@ import mobileButton from '../images/th-menu.png';
 import NotifBar from './NotifBar';
 import DivRow from './DivRow';
 import '../css/TopBar.css';
+import FontAwesome from 'react-fontawesome';
+import 'font-awesome/css/font-awesome.css';
 
 import GawatiAuthHelper from '../utils/GawatiAuthHelper';
-
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 const Logo = () =>
     <NavLink className="nav-brand" to="/">
@@ -39,7 +42,7 @@ const TopBarUpper = ({i18n, match}) => {
 
 
 class TopBar extends React.Component {
-    state = { username: 'guest', authenticated: 'false'}
+    state = { username: 'guest', authenticated: 'false','organization_access': 'true'}
     handleChange = (e, { name, value }) => { this.setState({ [name]: value }); }
     login = () => {
         GawatiAuthHelper.login();
@@ -75,15 +78,18 @@ class TopBar extends React.Component {
     }
 
     checkLogin = () =>{
-        if(GawatiAuthHelper.isUserLoggedIn()){
-            this.updateState('true', GawatiAuthHelper.getUserName());
-        }else{
-            const me = this;
-            GawatiAuthHelper.save_from_cookies(function(response){
-                var auth = GawatiAuthHelper.isUserLoggedIn() ? 'true' : 'false';
-                me.updateState(auth, GawatiAuthHelper.getUserName());
-            });
+        let isUserLoggedIn = cookies.get('KC_authenticated')==='true' ? 'true' : 'false';
+        let username = cookies.get('KC_username');
+        console.log(cookies.get('KC_realmAccess'));
+        let resource = cookies.get('KC_resourceAccess');
+        if(resource!==undefined){
+            let realm = Object.keys(resource)[0];
+            let role = resource[realm].roles;
+            if(role.indexOf("portalui.Admin") != -1){  
+               this.setState({organization_access:'true'});
+            }
         }
+        this.updateState(isUserLoggedIn, username);
     }
     componentDidMount() {
         this.checkLogin();
@@ -120,6 +126,12 @@ class TopBar extends React.Component {
                                     <button className={ `btn btn-link loggedIn` }>
                                         <NavLink to={ `/_lang/${lang}/profile` }>Logged in as <b>{this.state.username}</b></NavLink>
                                     </button>
+                                    {
+                                        this.state.organization_access==='true' ?
+                                        <button className={ `btn btn-link loggedIn` }>
+                                            <NavLink to={ `/_lang/${lang}/organization` }>Organization</NavLink>
+                                        </button> : <div></div>
+                                    }
                                     <button className={ `btn btn-link` }  onClick={this.logout}>
                                         Sign out
                                     </button>

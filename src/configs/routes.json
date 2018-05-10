@@ -2,5 +2,13 @@
     {
         "route": "/_lang/:lang/profile",
         "name": "profile"
+    },
+    {
+        "route": "/_lang/:lang/list/organization",
+        "name": "list_organization"
+    },
+    {
+        "route": "/_lang/:lang/add/organization",
+        "name": "add_organization"
     }
 ]}

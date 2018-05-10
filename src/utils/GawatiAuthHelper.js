@@ -69,7 +69,7 @@ export default class GawatiAuthHelper{
 
 	static save = function(callback){
 		this.init().then(() => {
-			window.gawati.KC.init().success(function(authenticated) {
+			window.gawati.KC.init().success(function(authenticated, token) {
 				if(authenticated){
 					localStorage.setItem('KC_authenticated', 'true');
 					cookies.set('KC_authenticated', 'true', { path: '/' });
@@ -77,6 +77,8 @@ export default class GawatiAuthHelper{
 						cookies.set('KC_token', window.gawati.KC.token, { path: '/' });
 						cookies.set('KC_refreshToken', window.gawati.KC.refreshToken, { path: '/' });
 						cookies.set('KC_idToken', window.gawati.KC.idToken, { path: '/' });
+						cookies.set('KC_realmAccess', JSON.stringify(window.gawati.KC.realmAccess), { path: '/' });
+						cookies.set('KC_resourceAccess', JSON.stringify(window.gawati.KC.resourceAccess), { path: '/' });
 					}).error(function() {
 						console.log('problem');
 					});
@@ -100,41 +102,8 @@ export default class GawatiAuthHelper{
 					cookies.set('KC_authenticated', 'false', { path: '/' });
 					cookies.set('KC_username', 'guest', { path: '/' });
 					cookies.set('KC_profile', JSON.stringify({}), { path: '/' });
-					callback(false);
-				}
-			}).error(function(error) {
-				alert('failed to initialize'+error);
-				callback(false);
-			})
-		}).catch((e) => {
-			console.log(e);
-		});
-	}
-
-	static save_from_cookies = function(callback){
-		let kc_token = cookies.get('KC_token');
-        let kc_refreshToken = cookies.get('KC_refreshToken');
-        let kc_idToken = cookies.get('KC_idToken');
-        console.log(kc_token);
-        console.log(kc_refreshToken);
-        console.log(kc_idToken);
-		this.init().then(() => {
-			console.log('ookkkk');
-			console.log(window.gawati.KC);
-			window.gawati.KC.init({token: kc_token,refreshToken: kc_refreshToken, idToken: kc_idToken}).success(function(authenticated) {
-				console.log('init');
-				if(authenticated){
-					localStorage.setItem('KC_authenticated', 'true');
-					window.gawati.KC.loadUserProfile().success(function(profile) {
-						localStorage.setItem('KC_username', profile.username);
-						callback(true);
-					}).error(function() {
-						localStorage.setItem('KC_username', 'guest');
-						callback(false);
-					});
-				}else{
-					localStorage.setItem('KC_authenticated', 'false');
-					localStorage.setItem('KC_username', 'guest');
+					cookies.set('KC_realmAccess', JSON.stringify({}), { path: '/' });
+					cookies.set('KC_resourceAccess', JSON.stringify({}), { path: '/' });
 					callback(false);
 				}
 			}).error(function(error) {

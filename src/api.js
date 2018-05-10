@@ -28,6 +28,7 @@ const __GAWATI_APIS = [
             'search-fulltext' : '/gwd/doc/search/json',
             'search-category' : '/gwd/search-category/json',
             'profile' : '/gwu/profile',
+            'organization' : '/gwu/organization',
             'profile-image' : '/gwu/uploads',
             'keycloak' : '/keycloak.json'
         }
