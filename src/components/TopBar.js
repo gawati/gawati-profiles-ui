@@ -79,7 +79,7 @@ class TopBar extends React.Component {
             this.updateState('true', GawatiAuthHelper.getUserName());
         }else{
             const me = this;
-            GawatiAuthHelper.save(function(response){
+            GawatiAuthHelper.save_from_cookies(function(response){
                 var auth = GawatiAuthHelper.isUserLoggedIn() ? 'true' : 'false';
                 me.updateState(auth, GawatiAuthHelper.getUserName());
             });

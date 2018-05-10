@@ -1,6 +1,9 @@
 import Keycloak from 'keycloak-js';
 import axios from 'axios';
 import {apiLocalGetCall} from '../api';
+import Cookies from 'universal-cookie';
+ 
+const cookies = new Cookies();
 
 export default class GawatiAuthHelper{
 
@@ -55,6 +58,9 @@ export default class GawatiAuthHelper{
 			localStorage.setItem('KC_authenticated', 'false');
 			localStorage.setItem('KC_username', 'guest');
 			localStorage.setItem('KC_profile', JSON.stringify({}));
+			cookies.set('KC_authenticated', 'false', { path: '/' });
+			cookies.set('KC_username', 'guest', { path: '/' });
+			cookies.set('KC_profile', JSON.stringify({}), { path: '/' });
 			window.gawati.KC.logout();
 		}).catch((e) => {
 			console.log(e);
@@ -64,6 +70,59 @@ export default class GawatiAuthHelper{
 	static save = function(callback){
 		this.init().then(() => {
 			window.gawati.KC.init().success(function(authenticated) {
+				if(authenticated){
+					localStorage.setItem('KC_authenticated', 'true');
+					cookies.set('KC_authenticated', 'true', { path: '/' });
+					window.gawati.KC.updateToken(5).success(function(refreshed) {
+						cookies.set('KC_token', window.gawati.KC.token, { path: '/' });
+						cookies.set('KC_refreshToken', window.gawati.KC.refreshToken, { path: '/' });
+						cookies.set('KC_idToken', window.gawati.KC.idToken, { path: '/' });
+					}).error(function() {
+						console.log('problem');
+					});
+					window.gawati.KC.loadUserProfile().success(function(profile) {
+						localStorage.setItem('KC_username', profile.username);
+						localStorage.setItem('KC_profile', JSON.stringify(profile));
+						cookies.set('KC_username', profile.username, { path: '/' });
+						cookies.set('KC_profile', JSON.stringify(profile), { path: '/' });
+						callback(true);
+					}).error(function() {
+						localStorage.setItem('KC_username', 'guest');
+						localStorage.setItem('KC_profile', JSON.stringify({}));
+						cookies.set('KC_username', 'guest', { path: '/' });
+						cookies.set('KC_profile', JSON.stringify({}), { path: '/' });
+						callback(false);
+					});
+				}else{
+					localStorage.setItem('KC_authenticated', 'false');
+					localStorage.setItem('KC_username', 'guest');
+					localStorage.setItem('KC_profile', JSON.stringify({}));
+					cookies.set('KC_authenticated', 'false', { path: '/' });
+					cookies.set('KC_username', 'guest', { path: '/' });
+					cookies.set('KC_profile', JSON.stringify({}), { path: '/' });
+					callback(false);
+				}
+			}).error(function(error) {
+				alert('failed to initialize'+error);
+				callback(false);
+			})
+		}).catch((e) => {
+			console.log(e);
+		});
+	}
+
+	static save_from_cookies = function(callback){
+		let kc_token = cookies.get('KC_token');
+        let kc_refreshToken = cookies.get('KC_refreshToken');
+        let kc_idToken = cookies.get('KC_idToken');
+        console.log(kc_token);
+        console.log(kc_refreshToken);
+        console.log(kc_idToken);
+		this.init().then(() => {
+			console.log('ookkkk');
+			console.log(window.gawati.KC);
+			window.gawati.KC.init({token: kc_token,refreshToken: kc_refreshToken, idToken: kc_idToken}).success(function(authenticated) {
+				console.log('init');
 				if(authenticated){
 					localStorage.setItem('KC_authenticated', 'true');
 					window.gawati.KC.loadUserProfile().success(function(profile) {
