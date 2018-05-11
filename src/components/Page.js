@@ -10,6 +10,7 @@ import NoMatch from './NoMatch';
 import ProfileContentArea from './ProfileContentArea';
 import ListOrganizationContentArea from './ListOrganizationContentArea';
 import AddOrganizationContentArea from './AddOrganizationContentArea';
+import EditOrganizationContentArea from './EditOrganizationContentArea';
 import Footer from './Footer';
 import { Redirect } from 'react-router'
 import {PropsRoute} from '../utils/routeshelper';
@@ -69,6 +70,7 @@ class Page extends React.Component {
                     <PropsRoute path={ getRoute('profile') } component={ProfileContentArea} i18n={this.props.i18n} />
                     <PropsRoute path={ getRoute('list_organization') } component={ListOrganizationContentArea} i18n={this.props.i18n} />
                     <PropsRoute path={ getRoute('add_organization') } component={AddOrganizationContentArea} i18n={this.props.i18n} />
+                    <PropsRoute path={ getRoute('edit_organization') } component={EditOrganizationContentArea} i18n={this.props.i18n} />
                     <PropsRoute component={NoMatch} />
                 </Switch>
                 <PropsRoute path="*" component={Footer}  i18n={this.props.i18n}  />

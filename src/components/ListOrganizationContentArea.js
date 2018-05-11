@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 import {apiGetCall} from '../api';
-
+import {setInRoute} from '../utils/routeshelper';
+import { defaultLang } from '../utils/generalhelper';
 
 class ListOrganizationContentArea extends React.Component {
 
@@ -20,7 +22,7 @@ class ListOrganizationContentArea extends React.Component {
     componentDidMount() {
         
     	let apiOrganization = apiGetCall(
-            'organization', {}
+            'list-organization', {}
         );
         
         axios.get(apiOrganization, {
@@ -34,19 +36,38 @@ class ListOrganizationContentArea extends React.Component {
 
     }
 
-    deleteMember(member){
-        var data = {
-            id: member.id
+    deleteOrganization(member){
+        console.log(member);
+        let data = {
+            _id: member._id
         }
+
+        let apiOrganization = apiGetCall(
+            'delete-organization', {}
+        );
+        
+        axios.delete(apiOrganization, {data
+        }) 
+        .then(response => {
+            let organization = this.state.organization;
+            let index = organization.indexOf(member);
+            this.setState({
+                organization: this.state.organization.filter((_, i) => i !== index)
+            });
+        })
+        .catch(function(error) {
+            console.log('There is some error' + error);
+        });
         
     }
 
 
     render() {
+        let lang = this.props.match.params.lang || defaultLang().langUI ;
         return (
             <div className="container-fluid">
+                <div className="row col-12"><div className="col-9"><h6>My Organizations</h6></div><div className="col-3"><NavLink to={setInRoute('add_organization',{lang:lang})}>Add Organization</NavLink></div></div>    
             	<div>
-                    <h2>My Organization</h2>
                     <table className="table table-hover">
                         <thead>
                             <tr>
@@ -67,8 +88,8 @@ class ListOrganizationContentArea extends React.Component {
                             <td>{member.name}</td>
                             <td>{member.country}</td>
                             <td>{member.type}</td>
-                            <td>{member.langauge}</td>
-                            <td><a onClick={() => this.openModal(member)}>Edit</a>|<a onClick={() => this.deleteOrganization(member)}>Delete</a></td>
+                            <td>{member.language}</td>
+                            <td><NavLink to={setInRoute('edit_organization',{lang:lang,_id:member._id})}>Edit</NavLink> | <a onClick={() => this.deleteOrganization(member)}>Delete</a></td>
                             </tr>
                         )}
                         </tbody>

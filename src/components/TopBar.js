@@ -9,12 +9,9 @@ import mobileButton from '../images/th-menu.png';
 import NotifBar from './NotifBar';
 import DivRow from './DivRow';
 import '../css/TopBar.css';
-import FontAwesome from 'react-fontawesome';
 import 'font-awesome/css/font-awesome.css';
 
 import GawatiAuthHelper from '../utils/GawatiAuthHelper';
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
 
 const Logo = () =>
     <NavLink className="nav-brand" to="/">
@@ -78,14 +75,13 @@ class TopBar extends React.Component {
     }
 
     checkLogin = () =>{
-        let isUserLoggedIn = cookies.get('KC_authenticated')==='true' ? 'true' : 'false';
-        let username = cookies.get('KC_username');
-        console.log(cookies.get('KC_realmAccess'));
-        let resource = cookies.get('KC_resourceAccess');
+        let isUserLoggedIn = GawatiAuthHelper.isUserLoggedIn() ? 'true' : 'false';;
+        let username = GawatiAuthHelper.getUserName();
+        let resource = GawatiAuthHelper.getResourceAccess();
         if(resource!==undefined){
             let realm = Object.keys(resource)[0];
             let role = resource[realm].roles;
-            if(role.indexOf("portalui.Admin") != -1){  
+            if(role.indexOf("portalui.Admin") !== -1){  
                this.setState({organization_access:'true'});
             }
         }

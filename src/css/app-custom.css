@@ -454,3 +454,10 @@ body{
   .fb-comments iframe {
     padding: 20px;
   }
+  .react-datepicker-wrapper{
+    width: 100% !important;
+  }
+
+  .react-datepicker__input-container{
+    width: 100%;
+  }

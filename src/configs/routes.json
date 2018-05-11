@@ -10,5 +10,9 @@
     {
         "route": "/_lang/:lang/add/organization",
         "name": "add_organization"
+    },
+    {
+        "route": "/_lang/:lang/edit/organization/:_id",
+        "name": "edit_organization"
     }
 ]}

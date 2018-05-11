@@ -17,10 +17,11 @@
     "i18next-browser-languagedetector": "^2.1.0",
     "i18next-xhr-backend": "^1.5.1",
     "keycloak-js": "^3.4.3",
-    "moment": "2.21.0",
+    "moment": "^2.21.0",
     "react": "16.2.0",
     "react-autosuggest": "9.3.4",
     "react-avatar-editor": "^11.0.2",
+    "react-datepicker": "^1.4.1",
     "react-dom": "16.2.0",
     "react-facebook": "^4.2.1",
     "react-fontawesome": "^1.6.1",
@@ -48,6 +49,7 @@
   "devDependencies": {
     "shx": "^0.2.2"
   },
+  "react-bootstrap-date-picker": "github:maxaggedon/react-bootstrap-date-picker",
   "overrides": {
     "moment": {
       "main": [

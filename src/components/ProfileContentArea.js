@@ -2,8 +2,6 @@ import React from 'react';
 import axios from 'axios';
 
 import EditableLabel from '../commons/EditableLabel';
-
-import GawatiAuthHelper from '../utils/GawatiAuthHelper';
 import {apiGetCall} from '../api';
 import { ToastContainer, toast } from 'react-toastify';
 import { Col, FormGroup, Label, Input, FormText} from 'reactstrap';
@@ -223,17 +221,17 @@ class ProfileContentArea extends React.Component {
         let userName = profile.username!==undefined ? profile.username : '';
         this.setState({ userName: userName, firstName: firstName, lastName: lastName, email: email});
         
-        // axios.get(apiProfile, {
-        //     params:{   
-        //         userName: userName
-        //     }
-        // }) 
-        // .then(response => {
-        //     this.setState({ nickName: response.data.data.nickName, phone: response.data.data.phone, country: response.data.data.country, language: response.data.data.language, dpUrl: this.imageFullUrl(response.data.data.dpUrl)});
-        // })
-        // .catch(function(error) {
-        //     console.log('There is some error' + error);
-        // }); 
+        axios.get(apiProfile, {
+            params:{   
+                userName: userName
+            }
+        }) 
+        .then(response => {
+            this.setState({ nickName: response.data.data.nickName, phone: response.data.data.phone, country: response.data.data.country, language: response.data.data.language, dpUrl: this.imageFullUrl(response.data.data.dpUrl)});
+        })
+        .catch(function(error) {
+            console.log('There is some error' + error);
+        }); 
 
     }
 
