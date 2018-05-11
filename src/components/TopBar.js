@@ -39,7 +39,7 @@ const TopBarUpper = ({i18n, match}) => {
 
 
 class TopBar extends React.Component {
-    state = { username: 'guest', authenticated: 'false','organization_access': 'true'}
+    state = { username: 'guest', authenticated: 'false','organization_access': 'false'}
     handleChange = (e, { name, value }) => { this.setState({ [name]: value }); }
     login = () => {
         GawatiAuthHelper.login();
