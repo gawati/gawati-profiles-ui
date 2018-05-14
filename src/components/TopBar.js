@@ -7,9 +7,9 @@ import LanguageSwitcher from '../containers/LanguageSwitcher';
 
 import mobileButton from '../images/th-menu.png';
 import NotifBar from './NotifBar';
-import DivRow from './DivRow';
 import '../css/TopBar.css';
 import 'font-awesome/css/font-awesome.css';
+import {setInRoute} from '../utils/routeshelper';
 
 import GawatiAuthHelper from '../utils/GawatiAuthHelper';
 
@@ -39,7 +39,7 @@ const TopBarUpper = ({i18n, match}) => {
 
 
 class TopBar extends React.Component {
-    state = { username: 'guest', authenticated: 'false','organization_access': 'false'}
+    state = { username: 'guest', authenticated: 'false','organization_access': 'true'}
     handleChange = (e, { name, value }) => { this.setState({ [name]: value }); }
     login = () => {
         GawatiAuthHelper.login();
@@ -109,7 +109,7 @@ class TopBar extends React.Component {
                         <img alt="menu" src={mobileButton}  />
                     </div>
                     <div className="search-form-container col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                    <DivRow>
+                    <div className="row right">
                         <NotifBar />
                         <div className="login col-3">
                             {
@@ -125,7 +125,7 @@ class TopBar extends React.Component {
                                     {
                                         this.state.organization_access==='true' ?
                                         <button className={ `btn btn-link loggedIn` }>
-                                            <NavLink to={ `/_lang/${lang}/organization` }>Organization</NavLink>
+                                            <NavLink to={setInRoute('list_organization',{lang:lang})}>Organization</NavLink>
                                         </button> : <div></div>
                                     }
                                     <button className={ `btn btn-link` }  onClick={this.logout}>
@@ -144,7 +144,7 @@ class TopBar extends React.Component {
                             </div> 
                             }
                         </div>
-                    </DivRow>
+                    </div>
                     </div>
                 </div>
                 <div className="w-nav-overlay" data-wf-ignore=""/>

@@ -461,3 +461,7 @@ body{
   .react-datepicker__input-container{
     width: 100%;
   }
+
+  .right{
+    float: right;
+  }

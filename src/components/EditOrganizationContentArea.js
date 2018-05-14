@@ -8,6 +8,8 @@ import {setInRoute} from '../utils/routeshelper';
 import { defaultLang } from '../utils/generalhelper';
 import { ToastContainer, toast } from 'react-toastify';
 import moment from 'moment';
+import { getLangs } from "../utils/i18nhelper";
+import Select from 'react-select';
 
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -28,8 +30,10 @@ class EditOrganizationContentArea extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.logChange = this.logChange.bind(this);
         this.logChangeTime = this.logChangeTime.bind(this);
+        this.logChangeType = this.logChangeType.bind(this);
+        this.logChangeLanguage = this.logChangeLanguage.bind(this);
+        this.logChange = this.logChange.bind(this);
     }
 
 
@@ -66,14 +70,27 @@ class EditOrganizationContentArea extends React.Component {
 
     }
 
-    logChange(e) {
-        this.setState({[e.target.name]: e.target.value});  
+    logChangeLanguage(e) {
+        this.setState({
+          language: e.value
+        });
+    }
+
+    logChangeType(e) {
+        this.setState({
+          type: e.value
+        });
     }
 
     logChangeTime(date) {
+        console.log(moment(date).format('DD-MM-YYYY'));
         this.setState({
           date: date
         });
+    }
+
+    logChange(e) {
+        this.setState({[e.target.name]: e.target.value});  
     }
 
     componentDidMount() {
@@ -98,6 +115,19 @@ class EditOrganizationContentArea extends React.Component {
     render() {
         let lang = this.props.match.params.lang || defaultLang().langUI ;
         let dateComponent = this.state.date.split('-');
+        let allLangs = getLangs();
+        let langArray = [];
+        for(let i=0; i<allLangs.length;i++){
+            langArray.push({value:allLangs[i].content, label:allLangs[i].content});
+        }
+
+        let allTypes = ['Government Agency','Government Ministry','Civil Society Organization','Law Firm','Academic Institution','Private Entity'];
+        
+        let typeArray = [];
+        for(let i=0; i<allTypes.length;i++){
+            typeArray.push({value:allTypes[i], label:allTypes[i]});
+        }
+
         return (
             <div className="container-fluid">
                 <ToastContainer />
@@ -134,20 +164,23 @@ class EditOrganizationContentArea extends React.Component {
                             <FormGroup row>
                                 <Label for="label" sm={2}>Type</Label>
                                 <Col sm={10}>
-                                    <Input type="select" name="type" onChange={this.logChange}>
-                                        <option value="Government Agency">Government Agency</option>
-                                        <option value="Government Ministry">Government Ministry</option>
-                                        <option value="Civil Society Organization">Civil Society Organization</option>
-                                        <option value="Law Firm">Law Firm</option>
-                                        <option value="Academic Institution">Academic Institution</option>
-                                        <option value="Private Entity">Private Entity</option>
-                                    </Input>
+                                    <Select
+                                        name="type"
+                                        value={this.state.type}
+                                        onChange={this.logChangeType}
+                                        options={typeArray}
+                                      />
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
                                 <Label for="label" sm={2}>Language</Label>
                                 <Col sm={10}>
-                                    <Input type="text" value={this.state.language}  name="language" onChange={this.logChange} placeholder="Language" autoFocus/>
+                                    <Select
+                                        name="language"
+                                        value={this.state.language}
+                                        onChange={this.logChangeLanguage}
+                                        options={langArray}
+                                      />
                                 </Col>
                             </FormGroup>
                             <div className="submit-section">
