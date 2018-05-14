@@ -1,0 +1,127 @@
+
+
+<Location "/gw/service/searchac/">
+  AddType text/cache-manifest .appcache
+  DirectoryIndex "login.html"
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/searchAC/json"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/searchAC/json"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+<Location "/gw/service/pdf/">
+  AddType text/cache-manifest .appcache
+  DirectoryIndex "login.html"
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/doc/pdf"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/doc/pdf"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+<Location "/gw/service/themes/expressions/summary/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/themes/expressions/summary/json"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/themes/expressions/summary/json"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+
+<Location "/gw/service/recent/expressions/summary/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/recent/expressions/summary/json"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/recent/expressions/summary/json"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+
+<Location "/gw/service/doc/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/doc/json"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/doc/json"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+<Location "/gw/portal/xml/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/doc"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/doc"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+<Location "/gw/service/search/year/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/search/years/summary/json"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/search/years/summary/json"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+
+<Location "/gw/service/search/language/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/search/languages/summary/json"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/search/languages/summary/json"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+
+<Location "/gw/service/search/keyword/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/search/keywords/summary/json"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/search/keywords/summary/json"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+
+<Location "/gw/service/search/country/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/search/countries/summary/json"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/search/countries/summary/json"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+
+
+
+<Location "/gw/service/short-filter-cache/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:9001/gwp/short-filter-cache"
+  ProxyPassReverse "http://localhost:9001/gwp/short-filter-cache"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+<Location "/gw/service/search/filter/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:8080/exist/restxq/gw/search/filter/json"
+  ProxyPassReverse "http://localhost:8080/exist/restxq/gw/search/filter/json"
+  ProxyPassReverseCookiePath /exist /
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>
+
+<Location "/gw/service/keyword/">
+  AddType text/cache-manifest .appcache
+  ProxyPass  "http://localhost:9001/gwp/keyword"
+  ProxyPassReverse "http://localhost:9001/gwp/keyword"
+  SetEnv force-proxy-request-1.0 1
+  SetEnv proxy-nokeepalive 1
+</Location>

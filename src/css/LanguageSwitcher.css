@@ -1,0 +1,67 @@
+.ui-lang-item {padding:5px;}
+
+.ui-lang-item > button {
+    background:none!important;
+    border:none; 
+    padding:0!important;
+    font-size:11px;
+    /*optional*/
+    font-family:arial,sans-serif;  /*input has OS specific font-family*/
+    /* color:#069; */
+    color: var(--languageswitcher-color);
+    /*text-decoration:underline;*/
+    cursor:pointer;
+    text-transform: uppercase; 
+}
+
+.ui-lang-highlight {
+    background-color: var(--languageswitcher-highlight-bg-color);
+}
+
+.ui-lang-item:hover {
+    background-color: var(--languageswitcher-bg-color)
+}
+
+ul.list-inline {
+    display: inline-block;
+    height: 34px;
+}
+
+ul.list-inline > [class^="Select"] {
+    display: inline-block;
+    min-width: 120px;
+}
+ul.list-inline .Select {
+    float: left;
+    height: 28px;
+}
+ul.list-inline .Select-control {
+    background: transparent !important;
+    border: 0px!important;
+    position: initial;
+    height: auto;
+    box-shadow: none;
+}
+
+ul.list-inline .Select-value {
+    padding-left: 0px !important;
+    padding-right: 25px !important;
+    text-align: center;
+    background: transparent !important;
+}
+
+ul.list-inline .Select-clear-zone, ul.list-inline .Select-input  {
+    display: none !important;
+}
+
+ul.list-inline .Select-value .Select-value-label{
+    color: var(--overrides-a-color) !important;
+}
+
+ul.list-inline .Select-input {
+    height: 100%;
+}
+
+ul.list-inline .Select-arrow-zone {
+    float: right;
+}

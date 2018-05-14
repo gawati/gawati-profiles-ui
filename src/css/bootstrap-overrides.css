@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    font-family: var(--font-1);
+  }
+
+p {
+    color: var(--overrides-p-color);
+    font-family: var(--font-1);
+    font-size: 13px;
+  }
+
+ol,
+ul,
+dl {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: var(--overrides-a-color);
+}
+
+h2 > a {
+  color: inherit;
+}
+  
+a:focus, a:hover {
+    color: var(--overrides-a-focus-color);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-2);
+  color: var(--overrides-h-color);
+}
+
+h1, .h1 {
+    font-size: 25px;
+  }
+  
+  h2, .h2 {
+    font-size: 25px;
+  }
+
+@media (min-width: 1200px) {
+    .container {
+      padding-right: 0;
+      padding-left: 0;
+    }
+ }
+
+
+@media (min-width: 1200px) {
+    .container {
+      width: 97%;
+    }
+}
+
+@media (min-width: 576px) {
+    .row {
+      margin-right: 0;
+      margin-left: 0;
+    }
+}
+  
+@media (min-width: 768px) {
+    .row {
+      margin-right: 0;
+      margin-left: 0;
+    }
+}
+  
+@media (min-width: 992px) {
+    .row {
+      margin-right: 0;
+      margin-left: 0;
+    }
+}
+  
+@media (min-width: 1200px) {
+    .row {
+      margin-right: 0;
+      margin-left: 0;
+    }
+}
+
+.breadcrumb {
+    font-family: var(--font-1);
+    font-size:12px;
+    color:var(--overrides-breadcrumb-color);
+    padding: 0.75rem 1rem 0;
+  }
+  

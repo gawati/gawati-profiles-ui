@@ -1,0 +1,60 @@
+{
+  "name": "gawati-user-profiles-ui",
+  "version": "1.0.0",
+  "private": true,
+  "proxy": "http://localhost",
+  "xhomepage": "http://localhost:9004",
+  "homepage": "http://localhost",
+  "dependencies": {
+    "axios": "0.18.0",
+    "bootstrap": "^4.0.0",
+    "core-js": "^2.5.5",
+    "echarts": "^4.0.4",
+    "echarts-for-react": "^2.0.8",
+    "font-awesome": "^4.7.0",
+    "gawati-lang-packs": "^1.0.2",
+    "i18next": "^10.5.0",
+    "i18next-browser-languagedetector": "^2.1.0",
+    "i18next-xhr-backend": "^1.5.1",
+    "keycloak-js": "^3.4.3",
+    "moment": "^2.21.0",
+    "react": "16.2.0",
+    "react-autosuggest": "9.3.4",
+    "react-avatar-editor": "^11.0.2",
+    "react-datepicker": "^1.4.1",
+    "react-dom": "16.2.0",
+    "react-facebook": "^4.2.1",
+    "react-fontawesome": "^1.6.1",
+    "react-helmet": "^5.2.0",
+    "react-i18next": "^7.4.0",
+    "react-pdf": "^3.0.1",
+    "react-router-dom": "4.2.2",
+    "react-scripts": "1.1.4",
+    "react-select": "^1.2.1",
+    "react-spinkit": "^3.0.0",
+    "react-swipeable": "^4.2.0",
+    "react-tabs": "2.2.1",
+    "react-toastify": "^3.4.3",
+    "reactstrap": "^5.0.0",
+    "universal-cookie": "^2.1.2"
+  },
+  "scripts": {
+    "start": "shx cp -R node_modules/gawati-lang-packs/locales public && react-scripts start",
+    "build": "react-scripts build && shx cp -R src/css/themes build/static/css && shx cp -R node_modules/gawati-lang-packs/locales build && node scripts/symlink.js",
+    "symlink": "node scripts/symlink.js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "vars": "env | grep npm_package_ | grep -v npm_lifecycle_script"
+  },
+  "devDependencies": {
+    "shx": "^0.2.2"
+  },
+  "react-bootstrap-date-picker": "github:maxaggedon/react-bootstrap-date-picker",
+  "overrides": {
+    "moment": {
+      "main": [
+        "min/moment-with-locales.min.js"
+      ]
+    }
+  }
+}

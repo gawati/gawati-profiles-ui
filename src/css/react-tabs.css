@@ -1,0 +1,36 @@
+#root .react-tabs__tab {
+    color: var(--reacttabs-color);
+    text-decoration: none!important;
+
+    border-top: var(--reacttabs-border);
+    border-left: var(--reacttabs-border);
+    border-right: var(--reacttabs-border);
+    border-radius: var(--reacttabs-border-radius);    
+    background: var(--reacttabs-bg-image);
+    transition: background-color 200ms linear;
+}
+
+#root .react-tabs__tab:last-child{
+    background-image: none;
+}
+
+#root .react-tabs__tab:hover{
+    background-color: var(--reacttabs-hover-bg-color);
+    color: var(--reacttabs-hover-color);
+    background-image: none;
+}
+
+/** for pure react tabs **/
+
+.react-tabs__tab-list {
+    margin:0 0 0px !important;
+}
+
+#root .react-tabs__tab.react-tabs__tab--selected {
+    background: var(--reacttabs-selected-bg-color);
+    color: var(--reacttabs-selected-color);
+    border-bottom: 0px!important;
+    border-left: var(--reacttabs-selected-border);
+    border-right: var(--reacttabs-selected-border);
+    border-top: var(--reacttabs-selected-border);
+}

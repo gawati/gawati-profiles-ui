@@ -1,0 +1,463 @@
+/** app-custom.css **/
+
+body{
+  font-size: 13px;
+}
+
+.no-scroll{
+  overflow: hidden;
+}
+
+/* UNUSED */
+
+  /* Search input */
+    .calendar{
+      font-family: var(--font-1);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 13px;
+    }
+    input{
+      display: block;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      line-height: 1.42857143;
+      color: #333333;
+      vertical-align: middle;
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      font-family: var(--font-1);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .text-field-2 {
+        width:87%;
+        height: 40px;
+        float: left;
+        font-family: var(--font-1);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #b3b0b0;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+      color: #b3b0b0;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+      color: #b3b0b0;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+      color: #b3b0b0;
+    }
+  /* Search input */
+  .button-2 {
+      margin-top: -14px;
+      float: right;
+  }
+  .button-wrapper {
+      padding-bottom: 18px;
+      padding-left: 21px;
+  }
+  .paragraph {
+    margin-top: 7px;
+    padding-right: 0px;
+    padding-left: 0px;
+    font-family: var(--font-1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #74737a;
+    font-size: 13px;
+  }
+  .heading-2 {
+      margin-top: 0px;
+      margin-bottom: 3px;
+      font-family: var(--font-2);
+      color: #74737a;
+  }
+  .the-result{
+    position: absolute;
+    z-index: 7;
+    background: #fff;
+    padding: 7px;
+    top: 40px;
+    border: 1px solid #ccc;
+  }
+  .the-result .left{
+    width:43%;
+  }
+  .the-result h2{
+    text-decoration: underline;
+    margin-top: 14px;
+  }
+  .the-result a:hover,
+  .the-result a:active,
+  .the-result a:focus{
+    color:#000;
+    text-decoration: underline;
+  }
+  .the-result .right{
+    display: none;
+    width: 54%;
+    border-left: 1px solid #ccc;
+    padding-left: 14px;
+    margin-top: -54px;
+    overflow: scroll;
+    height: 484px;
+    overflow-x: hidden;
+  }
+
+/* UNUSED TILL HERE */
+
+
+/* column - main*/
+  .main-col {
+    float: var(--main-col-position);
+  }
+  .feed {
+    float: left;
+    margin-bottom: 0px;
+    padding: 14px 21px 0px;
+  }
+  .feed p{
+    margin-top: 10px;
+  }
+  .feed .text-block a:hover{
+    color: var(--content-a-hover-color);
+    text-decoration: underline;
+  }
+  .text-block {
+    font-family: var(--font-1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--content-text-block-color);
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  .feed .grey-rule{
+    margin-bottom:8px;
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 11px 20px;
+    border-radius: 3px;
+    background-color: var(--content-button-bg-color);
+    -webkit-transition: background-color 200ms ease;
+    transition: background-color 200ms ease;
+    color: var(--content-button-color);
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .tab-pane {
+    background-color: var(--content-tab-pane-bg-color);
+  }
+  .search-result{
+    float: left;
+    margin-bottom: 30px;
+    border-radius: var(--reacttabs-border-radius);
+    background-color: var(--content-search-result-bg-color);
+    box-shadow: var(--content-search-result-box-shadow);
+    font-family: var(--font-1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--content-search-result-color);
+    width: 100%;
+  }
+  .search-result h1{
+    margin-bottom: 7px;
+    font-family: var(--font-2);
+    color: var(--content-search-result-h1-color);
+    font-size: 35px;
+  }
+  .search-result h1 span{
+    font-size: 33px;
+    font-style: italic;
+  }
+  .search-result .text-block{
+    font-size:12px;
+  }
+  .search-result a:hover{
+    text-decoration: underline;
+  }
+  .search-result .more{
+    color: var(--content-search-result-more-color);
+  }
+  .search-result .more:hover{
+    color: var(--content-search-result-more-hover-color);
+    text-decoration: underline;
+  }
+  .grey-rule.last{
+    margin-bottom: 22px;
+  }
+  .paginations {
+    text-align: center;
+    padding: 20px 0;
+  }
+  .paginations a{
+    padding:7px;
+  }
+  .feed .paginations{
+    text-align: right;
+    padding: 7px 0;
+  }
+   .feed .paginations a{
+    padding: 7px 3px;
+  }
+  .document-download{
+    font-size: 12px;
+    float: left;
+    width: 100%;
+    border-bottom: 1px dotted var(--content-doc-download-border-color);
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+  }
+  .document-download ul{
+    margin:0;
+  }
+  .part-of{
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .document-download li{
+    display:inline-block;
+    width:19%;
+    vertical-align: top;
+    background: var(--section-bg-color);
+    
+    text-align: center;
+    line-height: 20px;
+    margin-left: .25%;
+    margin-right: .25%;
+  }
+  .metadata li{
+    margin: 7px 0;
+  }
+  .grey-rule {
+      width: 100%;
+      height: 1px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      float: left;
+      background-color: var(--content-grey-rule-bg-color);
+  }  
+  .click-more{
+    cursor: pointer;
+  }
+  .breadcrumb-gw {
+    font-family: var(--font-1);
+    font-size:12px;
+    color: var(--content-breadcrumb-color);
+    padding: 0.75rem 1rem 0;
+  }
+/* column - main content column */
+
+  .document-download li a {
+    cursor: pointer;
+    color: var(--section-color);
+  }
+
+  /* clud tabs */
+    .text-span-14 {
+      font-size: 12px;
+    }
+    .text-span-13 {
+      font-size: 16px;
+    }
+    .text-span-27 {
+      font-size: 9px;
+    }
+    .text-span-15 {
+      font-size: 13px;
+    }
+    .text-span-28 {
+      font-size: 9px;
+    }
+    .text-span-20 {
+      font-size: 13px;
+    }
+    .text-span-21 {
+      font-size: 14px;
+    }
+    .text-span-30 {
+      font-size: 7px;
+    }
+    .text-span-22 {
+      font-size: 14px;
+    }
+    .text-span-12 {
+      font-size: 16px;
+    }
+    .text-span-23 {
+      font-size: 15px;
+    }
+    .text-span-29 {
+      font-size: 9px;
+    }
+    .text-span-16 {
+      font-size: 16px;
+    }
+    .text-span-17 {
+      font-size: 14px;
+    }
+    .text-span-19 {
+      font-size: 14px;
+    }
+    .text-span-18 {
+      font-size: 13px;
+    }
+  /* clud tabs */
+
+  /* Timeline */
+    .timeline ul{
+      border-bottom: 1px solid #ccc;
+    }
+    .timeline ul li{
+      display: inline-block;
+      width: 24%;
+      text-align: center;
+      margin-top:21px;
+      position: relative;
+    }
+    .timeline ul li a{
+      display: block;
+      border: 1px solid #ccc;
+      padding: 8% 0;
+      width: 81%;
+      margin: auto;
+    }
+    .timeline ul li a:hover,
+    .timeline ul li a:focus{
+      color: #000
+    }
+    .timeline ul li span{
+      display: block;
+      margin-top: 28px;
+    }
+    .timeline ul li span::after{
+      content: '*';
+      display: block;
+      position: absolute;
+      top: 94%;
+      left: 49%;
+    }
+    .timeline hr {
+      transform: rotate(90deg);
+      width: 46px;
+      margin-top: 23px;
+      margin-bottom: -6px;
+    }
+  /* Timeline */
+
+  
+
+  /* icons */
+    .document-warning::before{
+      background: url(../images/key-outline.png) no-repeat;
+      content: 'key';
+      width: 16px;
+      height: 20px;
+      font-size: 0px;
+      display: inline-block;
+      background-size: 100%;
+      vertical-align: top;
+    }
+    .document-download .col-3.left a::before{
+      background: url(../images/chevron-left.png) no-repeat;
+      content: 'back';
+      width: 16px;
+      height: 20px;
+      font-size: 0px;
+      display: inline-block;
+      background-size: 100%;
+      vertical-align: top;
+    }
+    .document-download .col-9.right{
+      padding:0;
+    }
+
+    .document-download .col-9.right ul li a::before{
+      content: 'txt';
+      width: 16px;
+      height: 20px;
+      font-size: 0px;
+      display: inline-block;
+      vertical-align: top;
+      margin-right:5px;
+    }
+    .document-download .col-9.right ul li:first-child a::before{
+      background: url(../images/user-add-outline.png) no-repeat;
+      background-size: 100%;
+    }
+    .document-download .col-9.right ul li:nth-child(2) a::before{
+      background: url(../images/clipboard.png) no-repeat;
+      background-size: 100%;
+    }
+    .document-download .col-9.right ul li:nth-child(3) a::before{
+      background: url(../images/download-outline.png) no-repeat;
+      background-size: 100%;
+    }
+    .document-download .col-9.right ul li:nth-child(4) a::before{
+      background: url(../images/download.png) no-repeat;
+      background-size: 100%;
+    }
+    .document-download .col-9.right ul li:nth-child(5) a::before{
+      background: url(../images/flow-merge.png) no-repeat;
+      background-size: 100%;
+    }
+    .part-of::before{
+      background: url(../images/chevron-right.png) no-repeat;
+      background-size: 100%;
+      content: 'partof';
+      width: 16px;
+      height: 20px;
+      font-size: 0px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .paginations::before{
+      background: url(../images/printer.png) no-repeat;
+      background-size: 100%;
+      content: 'partof';
+      width: 16px;
+      height: 20px;
+      font-size: 0px;
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer;
+    }
+    .the-result .right h4::after{
+      background: url(../images/key-outline.png) no-repeat;
+      background-size: 100%;
+      content: 'key';
+      width: 16px;
+      height: 20px;
+      font-size: 0px;
+      display: inline-block;
+      vertical-align: top;
+      position: absolute;
+      right: 7px;
+      top: 7px;
+    }
+    .the-result .right h4{
+      position: relative;
+    }
+  /* icons */
+
+/* Social */
+  .fb-comments iframe {
+    padding: 20px;
+  }
+  .react-datepicker-wrapper{
+    width: 100% !important;
+  }
+
+  .react-datepicker__input-container{
+    width: 100%;
+  }

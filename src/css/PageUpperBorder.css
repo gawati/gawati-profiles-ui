@@ -1,0 +1,60 @@
+/* Blocks at top */
+.div-block-2 {
+    width: 100%;
+    height: 3px;
+    background-color: var(--div-block-2-bg-color);
+  }
+
+  .div-block-3 {
+    height: 3px;
+  }
+
+  .div-block-4 {
+    width: 14.285%;
+    height: 3px;
+    float: left;
+    background-color: var(--div-block-4-bg-color);
+  }
+
+  .div-block-5 {
+    width: 14.285%;
+    height: 3px;
+    float: left;
+    background-color: var(--div-block-5-bg-color);
+  }
+
+  .div-block-6 {
+    width: 14.285%;
+    height: 3px;
+    float: left;
+    background-color: var(--div-block-6-bg-color);
+  }
+
+  .div-block-7 {
+    width: 14.285%;
+    height: 3px;
+    float: left;
+    background-color: var(--div-block-7-bg-color);
+  }
+
+  .div-block-8 {
+    width: 14.285%;
+    height: 3px;
+    float: left;
+    background-color: var(--div-block-8-bg-color);
+  }
+
+  .div-block-9 {
+    width: 14.285%;
+    height: 3px;
+    float: left;
+    background-color: var(--div-block-9-bg-color);
+  }
+
+  .div-block-10 {
+    width: 14.285%;
+    height: 3px;
+    float: left;
+    background-color: var(--div-block-10-bg-color);
+  }
+/* Blocks at top */

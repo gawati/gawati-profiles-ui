@@ -1,0 +1,80 @@
+  footer {
+    padding-top: 21px;
+    background-color: var(--footer-bg-color);
+    font-family: var(--font-1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--footer-color);
+    font-size: 14px;
+    float: left;
+    width:100%;
+  }
+
+  footer .footer{
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  footer a {
+    color: var(--footer-a-color);
+    font-size: 13px;
+  }
+
+  .form-done,
+  .form-fail,
+  .see-more{
+    display:none
+  }
+  .newsletter-form{
+    width: calc(100% - 35px);
+    height: 40px;
+    display: inline;
+  }
+  .submit-newsletter{
+    height: 40px;
+    float: right;
+    background: var(--footer-submit-bg);
+    border: none;
+    color: var(--footer-submit-color);
+  }
+  .social-icons{
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background-color: var(--footer-social-bg-color);
+    text-align: center;
+  }
+
+  .social-icons h5{
+    margin-top: 14px;
+    margin-bottom: 0px;
+    font-family: var(--font-2);
+    color: var(--footer-social-color);
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+  }
+  .social-icon-link {
+    display: inline-block;
+    width: 20px;
+    margin-right: 12px;
+    opacity: 0.36;
+    -webkit-transition: opacity 200ms ease;
+    transition: opacity 200ms ease;
+  }
+  .social-icon-link:hover {
+    opacity: 0.9;
+  }
+  .social-icon-link img{
+    width:20px;
+    background: var(--social-img-bg);
+  }
+  footer p{
+    margin-bottom: 11px;
+    font-family: var(--font-1);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--footerp-color);
+    font-size: 14px;
+  }
+/* footer */

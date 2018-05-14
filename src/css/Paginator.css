@@ -1,0 +1,32 @@
+ul.gw-pager {margin: auto; padding-bottom:40px; display: table;}
+.gw-pager>.active>a, .gw-pager>.active>a:focus, .gw-pager>.active>a:hover, .gw-pager>.active>span, 
+.gw-pager>.active>span:focus, .gw-pager>.active>span:hover {
+    z-index: 2;
+    color: #fff;
+    cursor: pointer;
+    background-color: var(--paginator-li-bg-color);
+    border-color: var(--paginator-li-border-color);
+}
+
+.gw-pager>li>a, .gw-pager>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: var(--paginator-li-color);
+    text-decoration: none;
+    border: 1px solid #ddd;
+}
+
+.gw-pager>.disabled>a, .gw-pager>.disabled>a:focus, .gw-pager>.disabled>a:hover, .gw-pager>.disabled>span, .gw-pager>.disabled>span:focus, .gw-pager>.disabled>span:hover {
+    color: var(--paginator-li-disabled-color);
+    cursor: not-allowed;
+    border-color: var(--paginator-li-disabled-border-color);
+}
+
+.gw-pager>li {
+    display: inline;
+    float: left;
+    cursor: pointer;
+}

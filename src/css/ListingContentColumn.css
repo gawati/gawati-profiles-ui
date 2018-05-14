@@ -1,0 +1,16 @@
+.listingHeading {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.feed {
+    display: inline-block;
+    float: none !important;
+    vertical-align: bottom;
+    width: 100%;
+}
+
+.wide100 {
+    width:100%;
+    float: left;
+}
