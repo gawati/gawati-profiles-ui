@@ -3,14 +3,15 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
 import {setInRoute} from '../utils/routeshelper';
-import { defaultLang } from '../utils/generalhelper';
+import { defaultLang, isAuthEnabled } from '../utils/generalhelper';
 
 import EditableLabel from '../commons/EditableLabel';
 import {apiGetCall} from '../api';
 import { ToastContainer, toast } from 'react-toastify';
 import { Col, FormGroup, Label, Input, FormText} from 'reactstrap';
 import AvatarEditor from 'react-avatar-editor';
-import GawatiAuthHelper from '../utils/GawatiAuthHelper';
+
+import { getToken, getRolesForClient, getUserProfile } from '../utils/GawatiAuthClient';
 
 const ProfileContentInfo = ({label, value}) => {
     if(value!==undefined && value!==""){
@@ -45,7 +46,7 @@ class ProfileContentArea extends React.Component {
         this.onImageChange = this.onImageChange.bind(this);
         this.state = {
             loading: true,
-            organization_access: 'false',
+            organization_access: 'true',
             firstName:'',
             lastName:'',
             userName:'',
@@ -216,32 +217,35 @@ class ProfileContentArea extends React.Component {
             'profile', {}
         );
 
-        let profile = GawatiAuthHelper.getProfile();
-
-        let firstName = profile.firstName!==undefined ? profile.firstName : '';
-        let lastName = profile.lastName!==undefined ? profile.lastName : '';
-        let email = profile.email!==undefined ? profile.email : '';
-        let userName = profile.username!==undefined ? profile.username : '';
-        this.setState({ userName: userName, firstName: firstName, lastName: lastName, email: email});
-        
-        axios.get(apiProfile, {
-            params:{   
-                userName: userName
-            }
-        }) 
-        .then(response => {
-            this.setState({ nickName: response.data.data.nickName, phone: response.data.data.phone, country: response.data.data.country, language: response.data.data.language, dpUrl: this.imageFullUrl(response.data.data.dpUrl)});
+        getUserProfile().success( (data) => {
+            let firstName = data.firstName!==undefined ? data.firstName : '';
+            let lastName = data.lastName!==undefined ? data.lastName : '';
+            let email = data.email!==undefined ? data.email : '';
+            let userName = data.username!==undefined ? data.username : '';
+            this.setState({ userName: userName, firstName: firstName, lastName: lastName, email: email});
+            axios.get(apiProfile, {
+                params:{   
+                    userName: userName
+                }
+            }) 
+            .then(response => {
+                this.setState({ nickName: response.data.data.nickName, phone: response.data.data.phone, country: response.data.data.country, language: response.data.data.language, dpUrl: this.imageFullUrl(response.data.data.dpUrl)});
+            })
+            .catch(function(error) {
+                console.log('There is some error' + error);
+            });
         })
-        .catch(function(error) {
-            console.log('There is some error' + error);
-        }); 
+        .error( (err) => {
+            console.log(" getUserProfile (err) = ", err);
+        });
 
-        let resource = GawatiAuthHelper.getResourceAccess();
-        if(resource!==undefined){
-            let realm = Object.keys(resource)[0];
-            let role = resource[realm].roles;
-            if(role.indexOf("portalui.Admin") !== -1){  
-               this.setState({organization_access:'true'});
+        if (isAuthEnabled()) {
+            if (getToken() != null) {
+                let roles = getRolesForClient();
+
+                if(roles.indexOf("portalui.Admin") !== -1){  
+                   this.setState({organization_access:'true'});
+                }
             }
         }
 
