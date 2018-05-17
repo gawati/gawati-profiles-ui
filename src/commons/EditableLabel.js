@@ -59,7 +59,7 @@ export default class EditableLabel extends React.Component {
     
         return <FormGroup row onClick={this._handleFocus}>
             <Label for="label" sm={2}><b>{this.state.label}</b></Label>
-            <Col sm={4}>
+            <Col sm={8}>
                 <Label for="label" >{this.state.text}</Label>
             </Col>
             <Col sm={2}>

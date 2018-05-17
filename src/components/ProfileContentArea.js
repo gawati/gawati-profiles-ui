@@ -1,13 +1,17 @@
 import React from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
+
+import {setInRoute} from '../utils/routeshelper';
+import { defaultLang, isAuthEnabled } from '../utils/generalhelper';
 
 import EditableLabel from '../commons/EditableLabel';
 import {apiGetCall} from '../api';
 import { ToastContainer, toast } from 'react-toastify';
 import { Col, FormGroup, Label, Input, FormText} from 'reactstrap';
 import AvatarEditor from 'react-avatar-editor';
-import Cookies from 'universal-cookie';
-const cookies = new Cookies();
+
+import { getToken, getRolesForClient, getUserProfile } from '../utils/GawatiAuthClient';
 
 const ProfileContentInfo = ({label, value}) => {
     if(value!==undefined && value!==""){
@@ -42,6 +46,7 @@ class ProfileContentArea extends React.Component {
         this.onImageChange = this.onImageChange.bind(this);
         this.state = {
             loading: true,
+            organization_access: 'true',
             firstName:'',
             lastName:'',
             userName:'',
@@ -212,46 +217,58 @@ class ProfileContentArea extends React.Component {
             'profile', {}
         );
 
-        let profile = cookies.get('KC_profile');
-        profile = profile===undefined ? {} : profile;
-
-        let firstName = profile.firstName!==undefined ? profile.firstName : '';
-        let lastName = profile.lastName!==undefined ? profile.lastName : '';
-        let email = profile.email!==undefined ? profile.email : '';
-        let userName = profile.username!==undefined ? profile.username : '';
-        this.setState({ userName: userName, firstName: firstName, lastName: lastName, email: email});
-        
-        axios.get(apiProfile, {
-            params:{   
-                userName: userName
-            }
-        }) 
-        .then(response => {
-            this.setState({ nickName: response.data.data.nickName, phone: response.data.data.phone, country: response.data.data.country, language: response.data.data.language, dpUrl: this.imageFullUrl(response.data.data.dpUrl)});
+        getUserProfile().success( (data) => {
+            let firstName = data.firstName!==undefined ? data.firstName : '';
+            let lastName = data.lastName!==undefined ? data.lastName : '';
+            let email = data.email!==undefined ? data.email : '';
+            let userName = data.username!==undefined ? data.username : '';
+            this.setState({ userName: userName, firstName: firstName, lastName: lastName, email: email});
+            axios.get(apiProfile, {
+                params:{   
+                    userName: userName
+                }
+            }) 
+            .then(response => {
+                this.setState({ nickName: response.data.data.nickName, phone: response.data.data.phone, country: response.data.data.country, language: response.data.data.language, dpUrl: this.imageFullUrl(response.data.data.dpUrl)});
+            })
+            .catch(function(error) {
+                console.log('There is some error' + error);
+            });
         })
-        .catch(function(error) {
-            console.log('There is some error' + error);
-        }); 
+        .error( (err) => {
+            console.log(" getUserProfile (err) = ", err);
+        });
+
+        if (isAuthEnabled()) {
+            if (getToken() != null) {
+                let roles = getRolesForClient();
+
+                if(roles.indexOf("portalui.Admin") !== -1){  
+                   this.setState({organization_access:'true'});
+                }
+            }
+        }
 
     }
 
 
     render() {
+    	let lang = this.props.match.params.lang || defaultLang().langUI ;
         return (
             <div className="container-fluid">
+            	<div className="row col-12"><h6>My Profile </h6>{ this.state.organization_access==='true' ?<NavLink to={setInRoute('list_organization',{lang:lang})}> | My Organizations</NavLink>:<div></div> }</div>
             	<ToastContainer />
                 <div>
-                    <h2>My Profile</h2>
                     <FormGroup row>
                         <Label for="exampleFile" sm={2}><b>Profile Image</b></Label>
-                        <Col sm={3}>
+                        <Col sm={10}>
                             <AvatarEditor
                                 image={this.state.dpUrl}
                                 width={150}
                                 height={150}
                                 border={1}
                             />
-                            <Input sm={3} type="file" name="file" id="imageFile" onChange={this.onImageChange}/>
+                            <Input sm={10} type="file" name="file" id="imageFile" onChange={this.onImageChange}/>
                             <FormText color="muted">
                                 Uppload new image to change the profile image.
                             </FormText>
