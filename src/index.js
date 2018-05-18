@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './i18n';
 
-import {apiLocalUrl} from './api';
+import {apiUrl} from './api';
 import { setupWithConfig, initSSORequired, refreshToken, siteLogout } from './utils/GawatiAuthClient';
 import { REFRESH_TOKEN_VALIDITY, REFRESH_TOKEN_INTERVAL } from './constants';
 
@@ -60,7 +60,7 @@ function launchWithAuth ()  {
 if (!isAuthEnabled()) {
     appRender();
 } else {
-    axios.get(apiLocalUrl("keycloak"))
+    axios.get(apiUrl("keycloak"))
     .then( (response) => {
         try {
             const keycloakConfig = response.data;
@@ -80,7 +80,7 @@ if (!isAuthEnabled()) {
         }
     })
     .catch( (error) => {
-        console.log(" Unable to load authentication profile on startup ", error, " possibly url is wrong ? ", apiLocalUrl("keycloak"));
+        console.log(" Unable to load authentication profile on startup ", error, " possibly url is wrong ? ", apiUrl("keycloak"));
         appRender();
     });
 

@@ -9,24 +9,6 @@ const __GAWATI_APIS = [
     {
         name: "data",
         apis : {
-            'content': '/gwp/content',
-            'doc': '/gwd/doc/json',
-            'doc-xml': '/gwd/doc',
-            'filter': '/gwd/search/filter/json',
-            'timeline': '/gwd/filter/timeline/json',
-            'keyword': '/gwp/keyword',
-            'keyword-value': '/gwp/keywordValue',
-            'recent-summary' : '/gwd/recent/expressions/summary/json',
-            'search-by-country' : '/gwd/search/countries/summary/json',
-            'search-by-language' : '/gwd/search/languages/summary/json',
-            'search-by-subject' : '/gwd/search/keywords/summary/json',
-            'search-by-year': '/gwd/search/years/summary/json',
-            'search-grouped': '/gwd/searchAC/json' ,
-            'short-filter-cache': '/gwp/short-filter-cache',
-            'smart-filter-cache': '/gwp/smart-filter-cache',
-            'themes-summary' : '/gwd/themes/expressions/summary/json',
-            'search-fulltext' : '/gwd/doc/search/json',
-            'search-category' : '/gwd/search-category/json',
             'profile' : '/gwu/profile',
             'list-organization' : '/gwu/list/organization',
             'get-organization' : '/gwu/get/organization',
@@ -34,7 +16,7 @@ const __GAWATI_APIS = [
             'update-organization' : '/gwu/update/organization',
             'delete-organization' : '/gwu/delete/organization',
             'profile-image' : '/gwu/uploads',
-            'keycloak' : '/keycloak.json'
+            'keycloak' : '/gwp/auth.json'
         }
     },
     {
