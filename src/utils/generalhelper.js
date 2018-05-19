@@ -1,6 +1,7 @@
 //import {documentTypes} from '../constants';
 import docTypes from '../configs/docTypes.json';
 import languageCodes from '../configs/shortLanguageCodes.json';
+import countryCodes from '../configs/countryCodes.json';
 import dev from '../configs/dev.json';
 
 import moment from 'moment';
@@ -77,6 +78,14 @@ export const getDocType = (findType) => getDocTypes().find(dType => dType['akn-t
 export const getLangCodeAlpha3b = (alpha3b) => languageCodes.langs.lang.find(lingo => lingo['alpha3b'] === alpha3b ) ;
 
 export const getLangCodeAlpha2 = (alpha2) => languageCodes.langs.lang.find(lingo => lingo['alpha2'] === alpha2 ) ;
+
+export const getAllLangCodes = () => {
+    return languageCodes.langs.lang;
+}
+
+export const getAllCountryCodes = () => {
+    return countryCodes.countries.country;
+}
 
 export const getLangDesc = (alpha3b) => {
     let langAlpha = getLangCodeAlpha3b(alpha3b);
