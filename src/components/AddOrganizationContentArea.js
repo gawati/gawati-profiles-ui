@@ -4,10 +4,9 @@ import { Col, FormGroup, Label, Input, Form, Button} from 'reactstrap';
 
 import {apiGetCall} from '../api';
 import {setInRoute} from '../utils/routeshelper';
-import { defaultLang } from '../utils/generalhelper';
+import { defaultLang, getAllLangCodes, getAllCountryCodes } from '../utils/generalhelper';
 import { ToastContainer, toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
-import { getLangs } from "../utils/i18nhelper";
 import Select from 'react-select';
 
 
@@ -24,15 +23,16 @@ class AddOrganizationContentArea extends React.Component {
             realm: '',
             date: '',
             name: '',
-            country: '',
+            country: 'Afghanistan',
             type: 'Government Agency',
-            language: 'english'
+            language: 'eng'
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.logChangeTime = this.logChangeTime.bind(this);
         this.logChangeType = this.logChangeType.bind(this);
         this.logChangeLanguage = this.logChangeLanguage.bind(this);
+        this.logChangeCountry = this.logChangeCountry.bind(this);
         this.logChange = this.logChange.bind(this);
     }
 
@@ -76,6 +76,12 @@ class AddOrganizationContentArea extends React.Component {
         });
     }
 
+    logChangeCountry(e) {
+        this.setState({
+          country: e.value
+        });
+    }
+
     logChangeType(e) {
         this.setState({
           type: e.value
@@ -95,10 +101,21 @@ class AddOrganizationContentArea extends React.Component {
 
     render() {
         let lang = this.props.match.params.lang || defaultLang().langUI ;
-        let allLangs = getLangs();
+        let allLangs = getAllLangCodes();
         let langArray = [];
         for(let i=0; i<allLangs.length;i++){
-            langArray.push({value:allLangs[i].content, label:allLangs[i].content});
+            if(typeof allLangs[i].desc === "object" && !Array.isArray(allLangs[i].desc) && allLangs[i].desc !== null){
+                langArray.push({value:allLangs[i].alpha3b, label:allLangs[i].desc.content});
+            }else{
+                langArray.push({value:allLangs[i].alpha3b, label:allLangs[i].desc[0].content});
+            }
+        }
+
+        let allCountries = getAllCountryCodes();
+        let countryArray = [];
+
+        for(let i=0; i<allCountries.length;i++){
+            countryArray.push({value:allCountries[i].name, label:allCountries[i].name});
         }
 
         let allTypes = ['Government Agency','Government Ministry','Civil Society Organization','Law Firm','Academic Institution','Private Entity'];
@@ -138,7 +155,12 @@ class AddOrganizationContentArea extends React.Component {
                             <FormGroup row>
                                 <Label for="label" sm={2}>Country</Label>
                                 <Col sm={10}>
-                                    <Input type="text" value={this.state.country}  name="country" onChange={this.logChange} placeholder="Country" autoFocus/>
+                                    <Select
+                                        name="type"
+                                        value={this.state.country}
+                                        onChange={this.logChangeCountry}
+                                        options={countryArray}
+                                      />
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
