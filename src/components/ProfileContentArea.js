@@ -256,7 +256,7 @@ class ProfileContentArea extends React.Component {
     	let lang = this.props.match.params.lang || defaultLang().langUI ;
         return (
             <div className="container-fluid">
-            	<div className="row col-12"><h6>My Profile </h6>{ this.state.organization_access==='true' ?<NavLink to={setInRoute('list_organization',{lang:lang})}> | My Organizations</NavLink>:<div></div> }</div>
+            	<div className="row col-12"><h6>My Profile </h6>{ this.state.organization_access==='true' ?<NavLink to={setInRoute('list_organization',{lang:lang})}> | My Organizations</NavLink>:<div></div> } <NavLink to={setInRoute('list_saved_searches',{lang:lang})}> | My Searches</NavLink></div>
             	<ToastContainer />
                 <div>
                     <FormGroup row>

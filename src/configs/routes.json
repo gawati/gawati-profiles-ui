@@ -14,5 +14,13 @@
     {
         "route": "/_lang/:lang/edit/organization/:_id",
         "name": "edit_organization"
+    },
+    {
+        "route": "/_lang/:lang/list/saved_searches",
+        "name": "list_saved_searches"
+    },
+    {
+        "route": "/_lang/:lang/filter/_count/:count/_from/:from/_to/:to/_q/:q*",
+        "name": "filter"
     }
 ]}
