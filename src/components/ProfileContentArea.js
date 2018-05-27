@@ -1,9 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { NavLink } from 'react-router-dom';
 
-import {setInRoute} from '../utils/routeshelper';
-import { defaultLang, isAuthEnabled, getAllLangCodes, getAllCountryCodes } from '../utils/generalhelper';
+import {getAllLangCodes, getAllCountryCodes } from '../utils/generalhelper';
 
 import EditableLabel from '../commons/EditableLabel';
 import {apiGetCall} from '../api';
@@ -12,7 +10,7 @@ import { Col, FormGroup, Label, Input, FormText} from 'reactstrap';
 import AvatarEditor from 'react-avatar-editor';
 import Select from 'react-select';
 
-import { getToken, getRolesForClient, getUserProfile } from '../utils/GawatiAuthClient';
+import {getUserProfile } from '../utils/GawatiAuthClient';
 
 const ProfileContentInfo = ({label, value}) => {
     if(value!==undefined && value!==""){
@@ -45,7 +43,6 @@ class ProfileContentArea extends React.Component {
         this.onImageChange = this.onImageChange.bind(this);
         this.state = {
             loading: true,
-            organization_access: 'true',
             firstName:'',
             lastName:'',
             userName:'',
@@ -235,22 +232,11 @@ class ProfileContentArea extends React.Component {
             console.log(" getUserProfile (err) = ", err);
         });
 
-        if (isAuthEnabled()) {
-            if (getToken() != null) {
-                let roles = getRolesForClient();
-
-                if(roles.indexOf("portalui.Admin") !== -1){  
-                   this.setState({organization_access:'true'});
-                }
-            }
-        }
-
     }
 
 
     render() {
-    	let lang = this.props.match.params.lang || defaultLang().langUI;
-
+    	
         let allLangs = getAllLangCodes();
         let langArray = [];
         for(let i=0; i<allLangs.length;i++){
@@ -270,7 +256,7 @@ class ProfileContentArea extends React.Component {
 
         return (
             <div className="container-fluid">
-            	<div className="row col-12"><h6>My Profile </h6>{ this.state.organization_access==='true' ?<NavLink to={setInRoute('list_organization',{lang:lang})}> | My Organizations</NavLink>:<div></div> } <NavLink to={setInRoute('list_saved_searches',{lang:lang})}> | My Searches</NavLink></div>
+            	<div className="row col-12"><h6>My Profile</h6></div>
             	<ToastContainer />
                 <div>
                     <FormGroup row>

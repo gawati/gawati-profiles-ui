@@ -7,7 +7,6 @@ import {T} from '../utils/i18nhelper';
 import { defaultLang, isAuthEnabled } from '../utils/generalhelper';
 import LanguageSwitcher from '../containers/LanguageSwitcher';
 import {apiGetCall} from '../api.js';
-import {setInRoute} from '../utils/routeshelper';
 
 import mobileButton from '../images/th-menu.png';
 import NotifBar from './NotifBar';
@@ -128,7 +127,6 @@ class TopBar extends React.Component {
                 </div>
                 <div id="myDropdown" className="dropdown-content">
                     <NavLink to={ `/_lang/${lang}/profile` } className={ `btn btn-link loggedIn` }>Logged in as <b>{userName}</b></NavLink>
-                    <NavLink to={setInRoute('list_saved_searches',{lang:lang})} className={ `btn btn-link loggedIn` }>My Searches</NavLink>
                     <button className={ `btn btn-link` }  onClick={this.logout}>
                         Sign out
                     </button>

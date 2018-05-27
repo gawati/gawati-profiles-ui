@@ -7,11 +7,7 @@ import {getRoute} from '../utils/routeshelper';
 //import PageUpperBorder from './PageUpperBorder';
 import TopBar from './TopBar';
 import NoMatch from './NoMatch';
-import ProfileContentArea from './ProfileContentArea';
-import ListOrganizationContentArea from './ListOrganizationContentArea';
-import AddOrganizationContentArea from './AddOrganizationContentArea';
-import EditOrganizationContentArea from './EditOrganizationContentArea';
-import ListSavedSearchesContentArea from './ListSavedSearchesContentArea';
+import HomeContentArea from './HomeContentArea';
 import Footer from './Footer';
 import { Redirect } from 'react-router'
 import {PropsRoute} from '../utils/routeshelper';
@@ -68,11 +64,11 @@ class Page extends React.Component {
                     <PropsRoute path="*" component={TopBar} i18n={this.props.i18n} slideToggle={this.slideToggle} />
                 </Switch>
                 <Switch>
-                    <PropsRoute path={ getRoute('profile') } component={ProfileContentArea} i18n={this.props.i18n} />
-                    <PropsRoute path={ getRoute('list_organization') } component={ListOrganizationContentArea} i18n={this.props.i18n} />
-                    <PropsRoute path={ getRoute('add_organization') } component={AddOrganizationContentArea} i18n={this.props.i18n} />
-                    <PropsRoute path={ getRoute('edit_organization') } component={EditOrganizationContentArea} i18n={this.props.i18n} />
-                    <PropsRoute path={ getRoute('list_saved_searches') } component={ListSavedSearchesContentArea} i18n={this.props.i18n} />
+                    <PropsRoute path={ getRoute('profile') } component={HomeContentArea} i18n={this.props.i18n} />
+                    <PropsRoute path={ getRoute('list_organization') } component={HomeContentArea} i18n={this.props.i18n} />
+                    <PropsRoute path={ getRoute('add_organization') } component={HomeContentArea} i18n={this.props.i18n} />
+                    <PropsRoute path={ getRoute('edit_organization') } component={HomeContentArea} i18n={this.props.i18n} />
+                    <PropsRoute path={ getRoute('list_saved_searches') } component={HomeContentArea} i18n={this.props.i18n} />
                     <PropsRoute component={NoMatch} />
                 </Switch>
                 <PropsRoute path="*" component={Footer}  i18n={this.props.i18n}  />
