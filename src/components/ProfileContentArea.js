@@ -3,13 +3,14 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
 import {setInRoute} from '../utils/routeshelper';
-import { defaultLang, isAuthEnabled } from '../utils/generalhelper';
+import { defaultLang, isAuthEnabled, getAllLangCodes, getAllCountryCodes } from '../utils/generalhelper';
 
 import EditableLabel from '../commons/EditableLabel';
 import {apiGetCall} from '../api';
 import { ToastContainer, toast } from 'react-toastify';
 import { Col, FormGroup, Label, Input, FormText} from 'reactstrap';
 import AvatarEditor from 'react-avatar-editor';
+import Select from 'react-select';
 
 import { getToken, getRolesForClient, getUserProfile } from '../utils/GawatiAuthClient';
 
@@ -39,10 +40,8 @@ class ProfileContentArea extends React.Component {
         this.nickNameFocusOut = this.nickNameFocusOut.bind(this);
         this.phoneFocus = this.phoneFocus.bind(this);
         this.phoneFocusOut = this.phoneFocusOut.bind(this);
-        this.countryFocus = this.countryFocus.bind(this);
-        this.countryFocusOut = this.countryFocusOut.bind(this);
-        this.languageFocus = this.languageFocus.bind(this);
-        this.languageFocusOut = this.languageFocusOut.bind(this);
+        this.changeLanguage = this.changeLanguage.bind(this);
+        this.changeCountry = this.changeCountry.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
         this.state = {
             loading: true,
@@ -67,11 +66,56 @@ class ProfileContentArea extends React.Component {
     phoneFocus(text) {
         console.log('Focused with text: ' + text);
     }
-    countryFocus(text) {
-        console.log('Focused with text: ' + text);
+    
+    changeLanguage(e) {
+        let apiProfile = apiGetCall(
+            'profile', {}
+        );
+
+        axios.post(apiProfile, {
+            language: e.value,
+            userName: this.state.userName
+        })
+        .then(response => {
+            console.log(response);
+            if(response.data.success==="true"){
+                this.setState({
+                    language: e.value
+                });
+                toast("Language updated successfully");
+            }else{
+                toast("There is some problem. Kindly try again");
+            }
+        })
+        .catch(function(error) {
+            console.log('There is some error' + error);
+            toast("There is some problem. Kindly try again");
+        });
     }
-    languageFocus(text) {
-        console.log('Focused with text: ' + text);
+
+    changeCountry(e) {
+        let apiProfile = apiGetCall(
+            'profile', {}
+        );
+
+        axios.post(apiProfile, {
+            country: e.value,
+            userName: this.state.userName
+        })
+        .then(response => {
+            if(response.data.success==="true"){
+                this.setState({
+                    country: e.value
+                });
+                toast("Country updated successfully");
+            }else{
+                toast("There is some problem. Kindly try again");
+            }
+        })
+        .catch(function(error) {
+            console.log('There is some error' + error);
+            toast("There is some problem. Kindly try again");
+        }); 
     }
 
     imageFullUrl(name){
@@ -120,54 +164,6 @@ class ProfileContentArea extends React.Component {
             console.log(response);
             if(response.data.success==="true"){
                 toast("Phone updated successfully");
-            }else{
-                toast("There is some problem. Kindly try again");
-            }
-        })
-        .catch(function(error) {
-            console.log('There is some error' + error);
-            toast("There is some problem. Kindly try again");
-        }); 
-    }
-
-    countryFocusOut(text) {
-
-        let apiProfile = apiGetCall(
-            'profile', {}
-        );
-
-        axios.post(apiProfile, {
-            country: text,
-            userName: this.state.userName
-        })
-        .then(response => {
-            console.log(response);
-            if(response.data.success==="true"){
-                toast("Country updated successfully");
-            }else{
-                toast("There is some problem. Kindly try again");
-            }
-        })
-        .catch(function(error) {
-            console.log('There is some error' + error);
-            toast("There is some problem. Kindly try again");
-        }); 
-    }
-
-    languageFocusOut(text) {
-
-        let apiProfile = apiGetCall(
-            'profile', {}
-        );
-
-        axios.post(apiProfile, {
-            language: text,
-            userName: this.state.userName
-        })
-        .then(response => {
-            console.log(response);
-            if(response.data.success==="true"){
-                toast("Language updated successfully");
             }else{
                 toast("There is some problem. Kindly try again");
             }
@@ -253,7 +249,25 @@ class ProfileContentArea extends React.Component {
 
 
     render() {
-    	let lang = this.props.match.params.lang || defaultLang().langUI ;
+    	let lang = this.props.match.params.lang || defaultLang().langUI;
+
+        let allLangs = getAllLangCodes();
+        let langArray = [];
+        for(let i=0; i<allLangs.length;i++){
+            if(typeof allLangs[i].desc === "object" && !Array.isArray(allLangs[i].desc) && allLangs[i].desc !== null){
+                langArray.push({value:allLangs[i].alpha3b, label:allLangs[i].desc.content});
+            }else{
+                langArray.push({value:allLangs[i].alpha3b, label:allLangs[i].desc[0].content});
+            }
+        }
+
+        let allCountries = getAllCountryCodes();
+        let countryArray = [];
+
+        for(let i=0; i<allCountries.length;i++){
+            countryArray.push({value:allCountries[i].name, label:allCountries[i].name});
+        }
+
         return (
             <div className="container-fluid">
             	<div className="row col-12"><h6>My Profile </h6>{ this.state.organization_access==='true' ?<NavLink to={setInRoute('list_organization',{lang:lang})}> | My Organizations</NavLink>:<div></div> } <NavLink to={setInRoute('list_saved_searches',{lang:lang})}> | My Searches</NavLink></div>
@@ -296,24 +310,28 @@ class ProfileContentArea extends React.Component {
                         onFocus={this.phoneFocus}
                         onFocusOut={this.phoneFocusOut}
                     />
-                    <EditableLabel text={this.state.country} label="Country"
-                        labelClassName='countryClass'
-                        inputClassName='countryClass'
-                        inputWidth='200px'
-                        inputHeight='25px'
-                        inputMaxLength='1000'
-                        onFocus={this.countryFocus}
-                        onFocusOut={this.countryFocusOut}
-                    />
-                    <EditableLabel text={this.state.language} label="Language"
-                        labelClassName='languageClass'
-                        inputClassName='languageClass'
-                        inputWidth='200px'
-                        inputHeight='25px'
-                        inputMaxLength='1000'
-                        onFocus={this.languageFocus}
-                        onFocusOut={this.languageFocusOut}
-                    />
+                    <FormGroup row>
+                        <Label for="label" sm={2}>Country</Label>
+                        <Col sm={10}>
+                            <Select
+                                name="type"
+                                value={this.state.country}
+                                onChange={this.changeCountry}
+                                options={countryArray}
+                              />
+                        </Col>
+                    </FormGroup>
+                    <FormGroup row>
+                        <Label for="label" sm={2}>Language</Label>
+                        <Col sm={10}>
+                            <Select
+                                name="language"
+                                value={this.state.language}
+                                onChange={this.changeLanguage}
+                                options={langArray}
+                              />
+                        </Col>
+                    </FormGroup>
                 </div>
             </div>
         );
