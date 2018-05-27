@@ -40,9 +40,9 @@ class HomeContentArea extends React.Component{
         return (
             <Aux>
                 <div className="row col-12">
-                    <NavLink to={setInRoute('profile',{lang:lang})} activeClassName="is-active">My Profile </NavLink>
-                    {this.state.organization_access==='true' ? <NavLink to={setInRoute('list_organization',{lang:lang})} activeClassName='is-active'> &nbsp;| My Organizations</NavLink>:<div></div> }
-                    <NavLink to={setInRoute('list_saved_searches',{lang:lang})} activeClassName='is-active'> &nbsp;| My Searches</NavLink>
+                    <NavLink to={setInRoute('profile',{lang:lang})}>My Profile </NavLink>
+                    {this.state.organization_access==='true' ? <NavLink to={setInRoute('list_organization',{lang:lang})}> &nbsp;| My Organizations</NavLink>:<div></div> }
+                    <NavLink to={setInRoute('list_saved_searches',{lang:lang})}> &nbsp;| My Searches</NavLink>
                 </div>
                 <hr className="margin-top-none"></hr>
                 <Switch>
