@@ -1,9 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+
 import {versionInfo} from '../utils/versionhelper';
 import {T} from '../utils/i18nhelper';
 import { defaultLang, isAuthEnabled } from '../utils/generalhelper';
 import LanguageSwitcher from '../containers/LanguageSwitcher';
+import {apiGetCall} from '../api.js';
 import {setInRoute} from '../utils/routeshelper';
 
 import mobileButton from '../images/th-menu.png';
@@ -13,8 +16,8 @@ import 'font-awesome/css/font-awesome.css';
 
 import { siteLogin, siteLogout, siteRegister, getUserInfo, getToken } from '../utils/GawatiAuthClient';
 
-const Logo = () =>
-    <NavLink className="nav-brand" to="/">
+const Logo = ({home_url}) =>
+	<NavLink className="nav-brand" to={home_url} target="_blank">
         <div className="logo-img"/>
     </NavLink>
     ;
@@ -39,7 +42,7 @@ const TopBarUpper = ({i18n, match}) => {
 
 
 class TopBar extends React.Component {
-    state = { username: 'guest', authenticated: 'false','organization_access': 'true'}
+    state = { username: 'guest', authenticated: 'false','organization_access': 'true','home_url':''}
     handleChange = (e, { name, value }) => { this.setState({ [name]: value }); }
 
     toggleDropDown = ()=>{
@@ -91,6 +94,17 @@ class TopBar extends React.Component {
                 });
             }
         }
+        let apiGawati = apiGetCall(
+            'gawati',
+            {}
+        );
+        axios.get(apiGawati)
+            .then(response => {
+                this.setState({home_url: response.data["gawati-portal-ui"].urlBase});
+            })
+            .catch(function(error) {
+                console.log("error in getDocument()", error);
+            });
     }
 
     renderLoggedin =  (lang, userName) => {
@@ -126,7 +140,7 @@ class TopBar extends React.Component {
 
     render() {
         let lang = this.props.match.params.lang || defaultLang().langUI ;
-        const {username} = this.state ;
+        const {username, home_url} = this.state ;
     	return (
             <header className="navigation-bar">
                 <div className="version-info">{
@@ -137,7 +151,7 @@ class TopBar extends React.Component {
                 <TopBarUpper i18n={ this.props.i18n } match={ this.props.match } />
                 </div>
                 <div className="container-fluid">
-                    <Logo />
+                    <Logo home_url={home_url} />
                     <SiteHeading />
                     <div className="mobile-button" onClick={this.props.slideToggle}>
                         <img alt="menu" src={mobileButton}  />
