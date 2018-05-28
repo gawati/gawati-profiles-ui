@@ -10,6 +10,7 @@ export default class EditableLabel extends React.Component {
         	isEditing: this.props.isEditing || false,
 			text: this.props.text || "",
             label: this.props.label || "",
+            data: this.props.data || {}
         };
         
         this._handleFocus = this._handleFocus.bind(this);
@@ -19,12 +20,12 @@ export default class EditableLabel extends React.Component {
     _handleFocus() {
     	if(this.state.isEditing) {
         	if(typeof this.props.onFocusOut === 'function') {
-        		this.props.onFocusOut(this.state.text);
+        		this.props.onFocusOut(this.state.text, this.state.data);
             }
         }
         else {
         	if(typeof this.props.onFocus === 'function') {
-	        	this.props.onFocus(this.state.text);
+	        	this.props.onFocus(this.state.text, this.state.data);
             }
         }
     
@@ -47,25 +48,54 @@ export default class EditableLabel extends React.Component {
 
     render() {
     	if(this.state.isEditing) {
-            return <FormGroup row>
-                    <Label for="label" sm={2}>{this.state.label}</Label>
-                        <Col sm={10}>
+            if(this.state.label===""){
+                return (
+                    <FormGroup row className={this.props.formGroupClassName}>
+                        <Col sm={12}>
                             <Input type="text" value={this.state.text} 
                             onChange={this._handleChange} onBlur={this._handleFocus} 
                             placeholder={this.props.inputPlaceHolder} autoFocus/>
+                        </Col>        
+                    </FormGroup>
+                );
+            }else{
+                return (
+                    <FormGroup row className={this.props.formGroupClassName}>
+                        <Label for="label" sm={2}>{this.state.label}</Label>
+                            <Col sm={10}>
+                                <Input type="text" value={this.state.text} 
+                                onChange={this._handleChange} onBlur={this._handleFocus} 
+                                placeholder={this.props.inputPlaceHolder} autoFocus/>
+                            </Col>
+                    </FormGroup>
+                );
+            }
+        }else{
+            if(this.state.label===""){
+                return(
+                    <FormGroup row onClick={this._handleFocus} className={this.props.formGroupClassName}>
+                        <Col sm={10}>
+                            <Label for="label" >{this.state.text}</Label>
                         </Col>
-                </FormGroup>;
+                        <Col sm={2}>
+                            <Label for="label">Edit</Label>
+                        </Col>
+                    </FormGroup>
+                );
+            }else{
+                return(
+                    <FormGroup row onClick={this._handleFocus} className={this.props.formGroupClassName} >
+                        <Label for="label" sm={2}>{this.state.label}</Label>
+                        <Col sm={8}>
+                            <Label for="label" >{this.state.text}</Label>
+                        </Col>
+                        <Col sm={2}>
+                            <Label for="label">Edit</Label>
+                        </Col>
+                    </FormGroup>
+                );
+            }
         }
-    
-        return <FormGroup row onClick={this._handleFocus}>
-            <Label for="label" sm={2}><b>{this.state.label}</b></Label>
-            <Col sm={8}>
-                <Label for="label" >{this.state.text}</Label>
-            </Col>
-            <Col sm={2}>
-                <Label for="label">Edit</Label>
-            </Col>
-        </FormGroup>;
     }
 }
 
@@ -73,7 +103,9 @@ EditableLabel.propTypes = {
     text: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     isEditing: PropTypes.bool,
+    data: PropTypes.object,
 
+    formGroupClassName: PropTypes.string,
     labelClassName: PropTypes.string,
     labelFontSize: PropTypes.string,
     labelFontWeight: PropTypes.string,

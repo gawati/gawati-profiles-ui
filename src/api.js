@@ -16,6 +16,8 @@ const __GAWATI_APIS = [
             'update-organization' : '/gwu/update/organization',
             'delete-organization' : '/gwu/delete/organization',
             'list-saved-searches' : '/gwu/list/search',
+            'delete-saved-searches' : '/gwu/delete/search',
+            'update-saved-searches' : '/gwu/update/search',
             'profile-image' : '/gwu/uploads',
             'keycloak' : '/gwp/auth.json',
             'gawati' : '/gwp/gawati.json',

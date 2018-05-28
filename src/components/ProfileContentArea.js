@@ -57,10 +57,10 @@ class ProfileContentArea extends React.Component {
 
     handleChange = (e, { name, value }) => { this.setState({ [name]: value }); }
 
-    nickNameFocus(text) {
+    nickNameFocus(text, data) {
         console.log('Focused with text: ' + text);
     }
-    phoneFocus(text) {
+    phoneFocus(text, data) {
         console.log('Focused with text: ' + text);
     }
     
@@ -123,7 +123,7 @@ class ProfileContentArea extends React.Component {
         return apiProfile + '/' + name;
     }
 
-    nickNameFocusOut(text) {
+    nickNameFocusOut(text, data) {
 
     	let apiProfile = apiGetCall(
             'profile', {}
@@ -147,7 +147,7 @@ class ProfileContentArea extends React.Component {
         }); 
     }
 
-    phoneFocusOut(text) {
+    phoneFocusOut(text, data) {
 
         let apiProfile = apiGetCall(
             'profile', {}
