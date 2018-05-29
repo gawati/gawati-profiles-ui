@@ -6,7 +6,7 @@ import EditableLabel from '../commons/EditableLabel';
 import { ToastContainer, toast } from 'react-toastify';
 import {apiGetCall} from '../api';
 import {setInRoute, convertObjectToEncodedString} from '../utils/routeshelper';
-import {isAuthEnabled, defaultLang } from '../utils/generalhelper';
+import {isAuthEnabled } from '../utils/generalhelper';
 import { getUserInfo, getToken } from '../utils/GawatiAuthClient';
 
 class ListSavedSearchesContentArea extends React.Component {
@@ -145,7 +145,7 @@ class ListSavedSearchesContentArea extends React.Component {
 
 
     render() {
-        let lang = this.props.match.params.lang || defaultLang().langUI;
+        //let lang = this.props.match.params.lang || defaultLang().langUI;
         return (
             <div className="container-fluid">
             <ToastContainer />
