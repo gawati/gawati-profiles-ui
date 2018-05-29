@@ -1,6 +1,6 @@
 {
   "name": "gawati-user-profiles-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "proxy": "http://localhost",
   "xhomepage": "http://localhost:9004",
