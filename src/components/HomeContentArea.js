@@ -1,9 +1,10 @@
 import React from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 import {Aux, defaultLang, isAuthEnabled} from '../utils/generalhelper';
 
 import {getRoute, setInRoute} from '../utils/routeshelper';
 import { getToken, getRolesForClient} from '../utils/GawatiAuthClient';
+import { Nav, NavLink } from 'reactstrap';
 
 import ProfileContentArea from './ProfileContentArea';
 import ListOrganizationContentArea from './ListOrganizationContentArea';
@@ -40,9 +41,11 @@ class HomeContentArea extends React.Component{
         return (
             <Aux>
                 <div className="row col-12">
-                    <NavLink to={setInRoute('profile',{lang:lang})}>My Profile </NavLink>
-                    {this.state.organization_access==='true' ? <NavLink to={setInRoute('list_organization',{lang:lang})}> &nbsp;| My Organizations</NavLink>:<div></div> }
-                    <NavLink to={setInRoute('list_saved_searches',{lang:lang})}> &nbsp;| My Searches</NavLink>
+                    <Nav>
+                        <NavLink href={setInRoute('profile',{lang:lang})}>My Profile</NavLink> 
+                        {this.state.organization_access==='true' ?  <NavLink href={setInRoute('list_organization',{lang:lang})}>My Organizations</NavLink> :<div></div> }
+                        <NavLink href={setInRoute('list_saved_searches',{lang:lang})}>My Searches</NavLink> 
+                    </Nav>
                 </div>
                 <hr className="margin-top-none"></hr>
                 <Switch>
