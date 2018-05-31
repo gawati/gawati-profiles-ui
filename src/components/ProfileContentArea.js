@@ -79,14 +79,14 @@ class ProfileContentArea extends React.Component {
                 this.setState({
                     language: e.value
                 });
-                toast("Language updated successfully");
+                toast.success("Language updated successfully");
             }else{
-                toast("There is some problem. Kindly try again");
+                toast.error("There is some problem. Kindly try again");
             }
         })
         .catch(function(error) {
             console.log('There is some error' + error);
-            toast("There is some problem. Kindly try again");
+            toast.error("There is some problem. Kindly try again");
         });
     }
 
@@ -104,14 +104,14 @@ class ProfileContentArea extends React.Component {
                 this.setState({
                     country: e.value
                 });
-                toast("Country updated successfully");
+                toast.success("Country updated successfully");
             }else{
-                toast("There is some problem. Kindly try again");
+                toast.error("There is some problem. Kindly try again");
             }
         })
         .catch(function(error) {
             console.log('There is some error' + error);
-            toast("There is some problem. Kindly try again");
+            toast.error("There is some problem. Kindly try again");
         }); 
     }
 
@@ -136,14 +136,14 @@ class ProfileContentArea extends React.Component {
         .then(response => {
             console.log(response);
             if(response.data.success==="true"){
-                toast("Nickname updated successfully");
+                toast.success("Nickname updated successfully");
             }else{
-                toast("There is some problem. Kindly try again");
+                toast.error("There is some problem. Kindly try again");
             }
         })
         .catch(function(error) {
             console.log('There is some error' + error);
-            toast("There is some problem. Kindly try again");
+            toast.error("There is some problem. Kindly try again");
         }); 
     }
 
@@ -160,14 +160,14 @@ class ProfileContentArea extends React.Component {
         .then(response => {
             console.log(response);
             if(response.data.success==="true"){
-                toast("Phone updated successfully");
+                toast.success("Phone updated successfully");
             }else{
-                toast("There is some problem. Kindly try again");
+                toast.error("There is some problem. Kindly try again");
             }
         })
         .catch(function(error) {
             console.log('There is some error' + error);
-            toast("There is some problem. Kindly try again");
+            toast.error("There is some problem. Kindly try again");
         }); 
     }
 
@@ -193,14 +193,14 @@ class ProfileContentArea extends React.Component {
             console.log(response);
             if(response.data.success==="true"){
                 this.setState({dpUrl: this.imageFullUrl(response.data.data.dpUrl)});
-                toast("Photo updated successfully");
+                toast.success("Photo updated successfully");
             }else{
-                toast("There is some problem. Kindly try again");
+                toast.error("There is some problem. Kindly try again");
             }
         })
         .catch(function(error) {
             console.log(error);
-            toast("There is some problem. Kindly try again");
+            toast.error("There is some problem. Kindly try again");
         }); 
     }
 

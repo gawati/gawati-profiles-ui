@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 import {apiGetCall} from '../api';
 import {setInRoute} from '../utils/routeshelper';
@@ -54,6 +55,7 @@ class ListOrganizationContentArea extends React.Component {
             this.setState({
                 organization: this.state.organization.filter((_, i) => i !== index)
             });
+            toast.success("Organization deleted successfully");
         })
         .catch(function(error) {
             console.log('There is some error' + error);
@@ -66,6 +68,7 @@ class ListOrganizationContentArea extends React.Component {
         let lang = this.props.match.params.lang || defaultLang().langUI ;
         return (
             <div className="container-fluid">
+                <ToastContainer />
                 <div className="row col-12"><div className="col-9"><h6>My Organizations</h6></div><div className="col-3"><NavLink to={setInRoute('add_organization',{lang:lang})}>Add Organization</NavLink></div></div>    
             	<div>
                     <table className="table table-hover">

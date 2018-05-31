@@ -88,7 +88,7 @@ class ListSavedSearchesContentArea extends React.Component {
             this.setState({
                 saved_searches: this.state.saved_searches.filter((_, i) => i !== index)
             });
-            toast("Saved search deleted successfully");
+            toast.success("Saved search deleted successfully");
         })
         .catch(function(error) {
             console.log('There is some error' + error);
@@ -116,7 +116,7 @@ class ListSavedSearchesContentArea extends React.Component {
         }) 
         .then(response => {
             if(response.data.error!==undefined){
-                toast(response.data.data.message);
+                toast.error(response.data.data.message);
                 let search = this.state.saved_searches;
                 let index = search.indexOf(data);
                 search[index].searchName = this.state.earlier_search;
@@ -124,7 +124,7 @@ class ListSavedSearchesContentArea extends React.Component {
                     saved_searches: search
                 });
             }else{
-                toast("Saved search updated successfully");
+                toast.success("Saved search updated successfully");
             }
         })
         .catch(function(error) {

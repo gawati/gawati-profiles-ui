@@ -56,16 +56,16 @@ class AddOrganizationContentArea extends React.Component {
         .then(response => {
             console.log(response);
             if(response.data.success==="true"){
-                toast("Organization created successfully");
+                toast.success("Organization created successfully");
                 let lang = this.props.match.params.lang || defaultLang().langUI ;
                 this.props.history.push(setInRoute('list_organization',{lang:lang}));
             }else{
-                toast("There is some problem. Kindly try again");
+                toast.error("There is some problem. Kindly try again");
             }
         })
         .catch(function(error) {
             console.log('There is some error' + error);
-            toast("There is some problem. Kindly try again");
+            toast.error("There is some problem. Kindly try again");
         }); 
 
     }
