@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Baloo';
+  src: url('./fonts/baloo-regular-webfont.woff2') format('woff2'),
+       url('./fonts/baloo-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bungee Inline';
+  src: url('./fonts/bungeeinline-regular-webfont.woff2') format('woff2'),
+       url('./fonts/bungeeinline-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('./fonts/firasans-regular-webfont.woff2') format('woff2'),
+       url('./fonts/firasans-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./fonts/roboto-regular-webfont.woff2') format('woff2'),
+       url('./fonts/roboto-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

@@ -17,11 +17,20 @@
 .sidebar-col.col-3 a:focus{
   color: var(--sidebar-a-color);
 }
+
+.sidebar-col.col-3 .Select-control {
+  font-family: var(--font-3);
+}
+
+.sidebar-col.col-3 small {
+  font-family: var(--font-3);
+}
+
 .white-wrapper {
   padding: 20px;
   border-radius: var(--sidebar-border-radius);
   background-color: var(--sidebar-bg-color);
-  box-shadow: var(--sidebar-box-shadow);
+  box-shadow: var(--content-search-result-box-shadow);
 }
 h2.small-heading {
     background: var(--sidebar-small-heading-bg);
@@ -29,6 +38,7 @@ h2.small-heading {
     color: var(--sidebar-small-heading-color);
     line-height: 20px;
     padding: var(--sidebar-small-heading-padding);
+    border-radius: var(--sidebar-border-radius);
 }
 
 .Select-control {

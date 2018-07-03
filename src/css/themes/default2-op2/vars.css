@@ -1,0 +1,238 @@
+:root {
+  
+  /* Overrides */
+    --overrides-breadcrumb-color: rgba(51, 51, 51, .67);
+    --overrides-p-color: #74737a;
+    --overrides-a-color: #a9a9a9;
+    --overrides-a-focus-color: #a9a9a9;
+    --overrides-h-color: #74737a; /* SIG */
+  /* Overrides */
+
+  /* Fonts */
+    --font-1: 'Aldrich', sans-serif;
+    --font-2: 'Oswald', sans-serif;
+    --font-3: 'Arimo', sans-serif;
+    --small-heading-font: 'Oswald', sans-serif;
+    --react-tabs-tab-font: 'Oswald', sans-serif;
+  /* Fonts */
+
+  /* app-custom */
+    /* content column - main column */
+      --main-col-position: left;
+      --content-grey-rule-bg-color: #c7c7c7;
+      --content-a-hover-color: #3898EC;
+      --content-text-block-color: #74737a;
+      --content-button-bg-color: #4e7a86;
+      --content-button-color: #fff;
+      --content-tab-pane-bg-color: #fff;
+      --content-search-result-box-shadow: 0 0 0 1px #d0d0d0;
+      --content-search-result-color: rgba(51, 51, 51, .67);
+      --content-search-result-h1-color: #74737a;
+      --content-doc-download-border-color: #000;
+
+    /* main column */
+  /* app-custom */
+
+  /* Footer */
+  --footer-bg-color: #3f474d;
+  --footer-color: #dddada;
+  --footer-bg-color2: #171b1d;
+  --footer-a-color: #dddada;
+  --footer-submit-bg: #3898ec;
+  --footer-submit-color: #fff;
+  --footer-social-bg-color: #171b1d;
+  --footer-social-color: #7e7979;
+
+  /* HomeContentColumn */
+  --home-wbutton-bg-color: #4e7a86;
+  --home-wbutton-color: #fff;
+
+  /* PageContentColumn */
+  --pagecontentcolumn-bg-color: #fff;
+  --pagecontentcolumn-color: rgba(51, 51, 51, .67);
+
+  /* PageUpperBorder - Retained for later use*/
+  /* --div-block-2-bg-color: #000;
+  --div-block-4-bg-color: #1abc9c;
+  --div-block-5-bg-color: #f2ca27;
+  --div-block-6-bg-color: #e67e22;
+  --div-block-7-bg-color: #16a085;
+  --div-block-8-bg-color: #2980b9;
+  --div-block-9-bg-color: #e74c3c;
+  --div-block-10-bg-color: #1abc9c; */
+
+  /* Paginator */
+  --paginator-li-bg-color: #4e7a86;
+  --paginator-li-border-color: #337ab7;
+  --paginator-li-color: #337ab7;
+  --paginator-li-disabled-color: #777;
+  --paginator-li-disabled-border-color: #ddd;
+
+  /* React tabs */
+  --reacttabs-bg-color: #fff;
+  --reacttabs-color: #4e7a86;
+  --reacttabs-selected-bg-color: #fff;
+  --reacttabs-selected-color: black;
+  --reacttabs-border: 1px solid transparent;
+  --reacttabs-border-radius: 0 0 0 0;;
+  --reacttabs-bg-image: #fffdd0;
+  --reacttabs-hover-bg-color: initial;
+  --reacttabs-hover-color: initial;
+  --reacttabs-selected-border: 1px solid #d0d0d0;
+  --reacttab-panel-border: solid 1px #d0d0d0;
+
+  /* RecentDocs */
+
+  /* Section */
+  --section-bg-color: white; /* SIG */
+  --section-color: #1abc9c;
+  --section-flex-dir: initial;
+
+  /* Sidebar */
+  --sidebar-col-position: right;
+  --sidebar-footer-color: #aaa;
+  --sidebar-a-color: #a9a9a9;
+  --sidebar-bg-color: #fff;
+  --sidebar-box-shadow: 0 0 0 1px #d0d0d0;
+  --sidebar-border-radius: 0px;
+  --sidebar-small-heading-color: rgb(116, 115, 122);
+  --sidebar-small-heading-padding: auto;
+  --sidebar-small-heading-bg: transparent;
+
+  /* SiteSearchAutoComplete */
+  --autosuggest-color: #333333;
+  --sitesearch-li-color: #a9a9a9; 
+  --sitesearch-bg-image: radial-gradient(circle, black, black 7%, transparent 15%, transparent 35%, black 45%, black 48%, transparent 55%);
+  --sitesearch-loading-bg-image: url("http://loadinggif.com/images/image-selection/3.gif");
+  --sitesearch-loading-bg-color: #ffffff;
+
+  /* TopBar */
+  --topbar-bg: white; /* SIG */ 
+  --topbar-submit-button-bg-color: #4e7a86;
+  --topbar-box-shadow:  0 1px 0 0 rgba(0, 0, 0, .06);
+  --logo-img: url("../../themes/default/assets/logo.png");
+  --logo-img-float: left;
+  --logo-img-height: 25px;
+  --logo-img-width: 45px;
+  --logo-color: white;
+  --logo-color2: black;
+  --logo-h2-display: none;
+  --logo-top-margin: 0px;
+  --logo-left-margin: 20px;
+  --logo-h1-mbottom: initial;
+  --search-input-height: 60px;
+  --heading-alongside-search: inline-block;
+  --second-header-row-display: block;
+  --second-header-text-align: center;
+  --heading-alongside-logo: inline-block;
+  --second-header-mtop: 50px;
+  --logotype-h1-bg: #40daa1;
+  --logotype-h1-height: 75px;
+  --logotype-h1-width: auto;
+  --logo-h1-font-size: 2rem;
+  --logotype-h1-lineht: 75px;
+  --logotype-h1-font: inherit;
+  --logo-h2-font-size: 1.4em;
+  --navbrand-h1-display: none;
+  --logo-h2-mleft: 5px;
+  --logo-img-float-994: left;
+
+
+  --search-form-container-mtop: 45px;
+  --search-form-container-mbottom: 25px;  
+
+  --version-font-size: initial;
+  --version-color: lightgrey;
+
+  --languageswitcher-highlight-bg-color: #e0ddd7;
+  --languageswitcher-bg-color: #e0ddd7;
+  --languageswitcher-color: #a9a9a9;
+  --lang-switch-font-size: 1em;
+
+  /* Media */
+  --sidebar-left-margin: auto;
+  --sidebar-right-margin: 0px;
+  --search-form-submit-btn-ht: 60px;
+  --navbrand-mtop-994: 0px;
+  --navbrand-display-994: inline-block;
+  --sidecol-mwidth-994: 45%;
+  --search-form-side-col-mleft-994: calc(55% + 15px);
+  --search-form-side-col-mtop-994: -70px;
+  --search-form-side-col-mtop-767: -100px;
+  --login-lineht-994: 14px;
+  --login-font-size-994: .85em;
+  --login-font-size: .8em;
+  --navbrand-float-767: left;
+  --side-col-mleft-767: calc(76% - 15px);
+
+}
+
+/* THEME CLASSES */
+
+
+.default2-op2.notHome .container-fluid > .logotype {
+  width: calc(100% - 30px);
+}
+
+.default2-op2.notHome .container-fluid > .logotype h1 {
+  width: auto;
+  height: 30px;
+  font-size: 20px;
+  line-height: 30px;
+  padding: 0px 10px 0px 10px;
+}
+
+.default2-op2.notHome .second-header-row {
+  text-align: center;
+  display: inline;
+  margin-top: 0px;
+  
+}
+
+.default2-op2.notHome .search-form-container {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  float: left;
+}
+
+.default2-op2 .second-header-row .logotype h1 {
+  padding: 0px 15px 0px 15px;
+}
+
+.default2-op2 .nav-brand .logotype {
+  vertical-align: center;
+  height: 25px;
+}
+
+.default2-op2 .nav-brand .logotype h2 {
+  line-height: 25px;
+  font-size: 24px;
+  width: auto;
+  padding: 0px 5px 0px 5px;
+  margin-left: 5px;
+  background: transparent;
+  margin-top: 0px;
+}
+
+.react-autosuggest__suggestions-container--open {
+  top: 60px;
+}
+
+@media (max-width: 767px) {
+
+  .nav-brand .logo-img {
+    display: inline-block;
+    margin: 0px 5px;
+    float: left;
+  }
+
+  .default2-op2 .nav-brand .logotype h2 {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 430px) {
+  .lang-switcher-wrapper {
+    margin-left: 220px;
+  }
+}

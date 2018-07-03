@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+/*@import url('https://fonts.googleapis.com/css?family=Montserrat');*/
 
 body {
-    font-family: var(--font-1);
+    font-family: var(--font-3);
   }
 
 p {
     color: var(--overrides-p-color);
-    font-family: var(--font-1);
+    font-family: var(--font-3);
     font-size: 13px;
   }
 
@@ -43,6 +43,9 @@ h1, .h1 {
     font-size: 25px;
   }
 
+  small {
+    font-size: .88em;
+  }
 @media (min-width: 1200px) {
     .container {
       padding-right: 0;

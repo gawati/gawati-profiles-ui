@@ -26,9 +26,13 @@
     display:none
   }
   .newsletter-form{
-    width: calc(100% - 35px);
+    width: calc(100% - 32px);
     height: 40px;
     display: inline;
+    border-top-right-radius: 0px;
+    border-top-left-radius: var(--sidebar-border-radius);
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: var(--sidebar-border-radius);
   }
   .submit-newsletter{
     height: 40px;
@@ -36,6 +40,8 @@
     background: var(--footer-submit-bg);
     border: none;
     color: var(--footer-submit-color);
+    border-top-right-radius: var(--sidebar-border-radius);
+    border-bottom-right-radius: var(--sidebar-border-radius);
   }
   .social-icons{
     padding-top: 14px;

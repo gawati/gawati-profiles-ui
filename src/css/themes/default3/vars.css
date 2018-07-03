@@ -1,0 +1,203 @@
+:root {
+    
+  /* Overrides */
+    --overrides-breadcrumb-color: rgba(51, 51, 51, .67);
+    --overrides-p-color: #74737a;
+    --overrides-a-color: #a9a9a9;
+    --overrides-a-focus-color: #a9a9a9;
+    --overrides-h-color: rgb(250, 162, 28); /* SIG */
+  /* Overrides */
+
+  /* Fonts */
+    --font-1: "Fira Sans", cursive;
+    --font-2: "Roboto", cursive;
+    --font-3: "Fira Sans", cursive;
+    --small-heading-font: "Baloo", cursive;
+    --react-tabs-tab-font: "Baloo", cursive;
+    --font-5: "Bungee Inline", cursive;
+  /* Fonts */
+
+  /* app-custom */
+    /* content column - left column */
+      --main-col-position: right;
+      --content-grey-rule-bg-color: transparent;
+      --content-a-color: #3898EC;
+      --content-text-block-color: #74737a;
+      --content-button-bg-color: rgb(250, 162, 28);
+      --content-button-color: #fff;
+      --content-tab-pane-bg-color: transparent;
+      --content-search-result-box-shadow: 0 0 0 2px #33cccc9e;
+      --content-search-result-color: rgba(51, 51, 51, .67);
+      --content-search-result-h1-color: #white;
+      --content-doc-download-border-color: #000;
+
+    /* left column */
+  /* app-custom */
+
+  /* HomeContentColumn */
+  --home-wbutton-bg-color: rgb(250, 162, 28);
+  --home-wbutton-color: white;
+  
+  /* Footer */
+  --footer-bg-color: darkcyan;
+  --footer-color: #dddada;
+  --footer-a-color: darkcyan;
+  --footer-submit-bg: rgb(250, 162, 28);
+  --footer-submit-color: #fff;
+  --footer-social-bg-color: rgb(250, 162, 28);
+  --footer-social-color: #010101;
+  --social-img-bg: #010101;
+
+  /* PageContentColumn */
+  --pagecontentcolumn-bg-color: #fff;
+  --pagecontentcolumn-color: rgba(51, 51, 51, .67);
+
+  /* PageUpperBorder - Retained for later use*/
+  /* --div-block-2-bg-color: #000;
+  --div-block-4-bg-color: #1abc9c;
+  --div-block-5-bg-color: #f2ca27;
+  --div-block-6-bg-color: #e67e22;
+  --div-block-7-bg-color: #16a085;
+  --div-block-8-bg-color: #2980b9;
+  --div-block-9-bg-color: #e74c3c;
+  --div-block-10-bg-color: #1abc9c; */
+
+  /* Paginator */
+  --paginator-li-bg-color: rgb(250, 162, 28);
+  --paginator-li-border-color: rgb(250, 162, 28);
+  --paginator-li-color: #20577d;
+  --paginator-li-disabled-color: #777;
+  --paginator-li-disabled-border-color: #ddd;
+
+  /* React tabs */
+  --reacttabs-bg-color: white;
+  --reacttabs-color: #cbcaca;
+  --reacttabs-selected-bg-color: white;
+  --reacttabs-selected-color: darkorange;
+  --reacttabs-border: 0px !important;
+  --reacttabs-border-radius: 10px!important;
+  --reacttabs-bg-image: white; /*url(../../themes/ke/assets/main-divider.jpg) no-repeat center right;*/
+  --reacttabs-hover-bg-color: white;
+  --reacttabs-hover-color: #f9a11b;
+  --reacttab-panel-border: solid 2px #33cccc9e;
+  --reacttabs-selected-border: solid 2px #33cccc9e;
+
+  /* RecentDocs */
+
+  /* Section */
+  --section-bg-color: #fff; /* SIG */
+  --section-color: rgb(250, 162, 28);
+  --section-flex-dir: row-reverse;
+
+  /* Sidebar */
+  --sidebar-col-position: left;
+  --sidebar-footer-color: #aaa;
+  --sidebar-a-color: #a9a9a9;
+  --sidebar-bg-color: white;
+  --sidebar-box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
+  --sidebar-border-radius: 10px;
+  --sidebar-small-heading-color: rgb(250, 162, 28);
+  --sidebar-small-heading-padding: 7px 0px 7px 10px;
+  --sidebar-small-heading-bg: white;
+
+  /* SiteSearchAutoComplete */
+  --autosuggest-color: #333333;
+  --sitesearch-li-color: #a9a9a9; 
+  --sitesearch-bg-image: radial-gradient(circle, black, black 7%, transparent 15%, transparent 35%, black 45%, black 48%, transparent 55%);
+  --sitesearch-loading-bg-image: url("http://loadinggif.com/images/image-selection/3.gif");
+  --sitesearch-loading-bg-color: #ffffff;
+
+  /* TopBar */
+  --topbar-bg: #33cccc9e;/* linear-gradient(rgb(45, 45, 45) 0%, rgb(43, 43, 43) 30%, rgb(41, 41, 41) 51%, rgb(39, 39, 39) 75%, rgb(37, 37, 37) 100%); */ /* SIG */ 
+  --topbar-box-shadow:  0 1px 0 0 rgba(0, 0, 0, .06);
+  --topbar-submit-button-bg-color: rgb(250, 162, 28);
+  --logo-img: url("../../themes/ke/assets/logo.png");
+  --logo-img-float: left;
+  --logo-img-height: 50px;
+  --logo-img-width: 90px;
+  --logo-color: white;
+  --logo-color2: white;
+  --logo-h2-display: inherit;
+  --logo-top-margin: 30px;
+  --logo-left-margin: 20px;
+  --logo-h1-mbottom: 0px;
+  --search-input-height: 40px;
+  --heading-alongside-logo: inline-block;
+  --heading-alongside-search: none;
+  --second-header-row-display: inline;
+  --second-header-text-align: initial;
+  --logotype-h1-bg: transparent;
+  --logotype-h1-height: 20%;
+  --logotype-h1-width: auto;
+  --logo-h1-font-size: 1.4rem;
+  --logo-h2-font-size: 1.2rem;
+  --logotype-h1-lineht: auto;
+  --logotype-h1-font: auto;
+  --navbrand-h1-display: block;
+  --logo-h2-mleft: 0px;
+  --logo-img-float-994: none;
+
+  --search-form-container-mtop: 40px;
+  --search-form-container-mbottom: 30px;
+  
+  --version-font-size: inherit;
+  --version-color: initial;
+
+  --languageswitcher-highlight-bg-color: rgb(51, 51, 51);
+  --languageswitcher-bg-color: rgb(51, 51, 51);
+  --languageswitcher-color: #a9a9a9;
+  --lang-switch-font-size: 13px;
+
+  
+  /* Media */
+  --sidebar-left-margin: 0px;
+  --sidebar-right-margin: auto;
+  --search-form-submit-btn-ht: 40px;
+  --navbrand-mtop-994: 30px;
+  --navbrand-display-994: block;
+  --sidecol-mwidth-994: auto;
+  --search-form-side-col-mleft-994: initial;
+  --login-lineht-994: 2em;
+  --login-font-size-994: 1em;
+  --login-font-size: 12px;
+  --navbrand-float-767: none;
+  --side-col-mleft-767: auto;
+  --search-form-side-col-mtop-994: initial;
+  --search-form-side-col-mtop-767: initial;
+ 
+}
+
+img.docThumb {
+  border-radius: 10px;
+}
+
+h2.small-heading {
+  border-top: solid 2px #33cccc9e;
+  border-radius: 0px;
+  margin-bottom: 5px;
+  padding-bottom: 0px;
+}
+
+.logotype h1, .logotype h2{
+  font-family: var(--font-5);
+}
+
+.Select-control {
+  border: solid 1px #33cccc9e;
+}
+
+.search-result .react-tabs {
+  margin-bottom: 20px;
+}
+
+footer li {
+  font-size: 14px;
+  border: solid 1px darkcyan;
+  margin: 10px;
+  border-radius: 5px;
+  line-height: 15px;
+  padding: 5px;
+  background: white;
+  text-align: center;
+  max-width: 200px;
+}

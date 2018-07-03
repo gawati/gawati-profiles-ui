@@ -7,7 +7,7 @@
     width:100%;
     min-width: 400px;
     float: left;
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 
 .left{
@@ -19,7 +19,7 @@
 }
 
 .sidebar-col.col-3{
-  font-family: var(--font-1);
+  font-family: var(--font-2);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #869aa7;
@@ -34,7 +34,7 @@
 .small-heading {
   margin-top: 0px;
   margin-bottom: 2px;
-  font-family: var(--font-1);
+  font-family: var(--small-heading-font);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;

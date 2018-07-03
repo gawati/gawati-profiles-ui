@@ -51,6 +51,7 @@ class Page extends React.Component {
         if (prod) {
             css = <Helmet>
                     <link rel="stylesheet" type="text/css" href={`${process.env.PUBLIC_URL}/static/css/themes/${process.env.REACT_APP_THEME}/vars.css`} />
+                    <link rel="stylesheet" type="text/css" href={`${process.env.PUBLIC_URL}/static/css/themes/${process.env.REACT_APP_THEME}/fonts.css`} />
                 </Helmet>
         }
         return (

@@ -12,6 +12,8 @@
     --font-1: "Roboto Condensed", sans-serif;
     --font-2: "Roboto Condensed", sans-serif;
     --font-3: "Roboto Condensed", sans-serif;
+    --small-heading-font: "Roboto Condensed", sans-serif;
+    --react-tabs-tab-font: "Roboto Condensed", sans-serif;
   /* Fonts */
 
   /* app-custom */
@@ -23,7 +25,6 @@
       --content-button-bg-color: rgb(250, 162, 28);
       --content-button-color: #fff;
       --content-tab-pane-bg-color: #fff;
-      --content-search-result-bg-color: #fff;
       --content-search-result-box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
       --content-search-result-color: rgba(51, 51, 51, .67);
       --content-search-result-h1-color: #74737a;
@@ -69,14 +70,15 @@
 
   /* React tabs */
   --reacttabs-bg-color: linear-gradient(to bottom, #2d2d2d 0%,#2b2b2b 30%,#292929 51%,#272727 75%,#252525 100%);;
-  --reacttabs-color: #fff!important;
+  --reacttabs-color: #cbcaca;
   --reacttabs-selected-bg-color: linear-gradient(to bottom, #2d2d2d 0%,#2b2b2b 30%,#292929 51%,#272727 75%,#252525 100%);;;
   --reacttabs-selected-color: rgb(250, 162, 28);
   --reacttabs-border: 0px !important;
   --reacttabs-border-radius: 0px !important;
-  --reacttabs-bg-image: #2d2d2d url(../../themes/ke/assets/main-divider.jpg) no-repeat center right;
+  --reacttabs-bg-image: #545454; /*url(../../themes/ke/assets/main-divider.jpg) no-repeat center right;*/
   --reacttabs-hover-bg-color: black;
   --reacttabs-hover-color: #f9a11b;
+  --reacttab-panel-border: none;
 
   /* RecentDocs */
   --feed-container-heading-bg-color: white;
@@ -109,15 +111,57 @@
   --topbar-box-shadow:  0 1px 0 0 rgba(0, 0, 0, .06);
   --topbar-submit-button-bg-color: rgb(250, 162, 28);
   --logo-img: url("../../themes/ke/assets/logo.png");
+  --logo-img-float: left;
+  --logo-img-height: 50px;
+  --logo-img-width: 90px;
   --logo-color: #231f20;
   --logo-color2: #90292a;
+  --logo-h2-display: inherit;
+  --logo-top-margin: 20px;
+  --logo-left-margin: 20px;
+  --logo-h1-mbottom: 0px;
+  --search-input-height: 40px;
+  --heading-alongside-logo: inline-block;
+  --heading-alongside-search: none;
+  --second-header-row-display: inline;
+  --second-header-text-align: initial;
+  --logotype-h1-bg: transparent;
+  --logotype-h1-height: 20%;
+  --logotype-h1-width: auto;
+  --logo-h1-font-size: 1.4rem;
+  --logo-h2-font-size: 1.2rem;
+  --logotype-h1-lineht: auto;
+  --logotype-h1-font: auto;
+  --navbrand-h1-display: block;
+  --logo-h2-mleft: 0px;
+  --logo-img-float-994: none;
+
+  --search-form-container-mtop: 30px;
+  --search-form-container-mbottom: auto;
+  
+  --version-font-size: inherit;
+  --version-color: initial;
+
   --languageswitcher-highlight-bg-color: rgb(51, 51, 51);
   --languageswitcher-bg-color: rgb(51, 51, 51);
   --languageswitcher-color: #a9a9a9;
+  --lang-switch-font-size: 13px;
 
   
   /* Media */
   --sidebar-left-margin: 0px;
   --sidebar-right-margin: auto;
+  --search-form-submit-btn-ht: 40px;
+  --navbrand-mtop-994: 30px;
+  --navbrand-display-994: block;
+  --sidecol-mwidth-994: auto;
+  --search-form-side-col-mleft-994: initial;
+  --login-lineht-994: 2em;
+  --login-font-size-994: 1em;
+  --login-font-size: 12px;
+  --navbrand-float-767: none;
+  --side-col-mleft-767: auto;
+  --search-form-side-col-mtop-994: initial;
+  --search-form-side-col-mtop-767: initial;
  
 }

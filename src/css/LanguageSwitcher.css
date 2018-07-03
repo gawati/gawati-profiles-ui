@@ -1,4 +1,7 @@
-.ui-lang-item {padding:5px;}
+.ui-lang-item {
+    font-size: var(--lang-switch-font-size);
+    font-family: var(--font-3);
+}
 
 .ui-lang-item > button {
     background:none!important;
@@ -22,18 +25,55 @@
     background-color: var(--languageswitcher-bg-color)
 }
 
-ul.list-inline {
-    display: inline-block;
-    height: 34px;
+ul.lang-list {
+    display: none;
+    white-space: nowrap;
 }
 
+ul.lang-list.show {
+    display: inline-block;
+}
+.lang-switcher-wrapper {
+    position: absolute;
+    top: 0px;
+    right: 30px;
+    text-align: right;
+}
+
+.current-lang {
+    line-height: 2em;
+    vertical-align: bottom;
+    padding-right: 4px;
+    color: #74737a;
+}
+.lang.dropbtn {
+    background: var(--reacttabs-bg-image);
+    color: #74737a;    
+}
+
+.dropbtn {
+    padding: 2px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+    color: var(--logo-color);
+}
+
+.dropdown.lang-list {
+    display: none;
+    float: right;
+}
+ul.list-inline {
+    display: inline-block;
+    line-height: 30px;
+}
 ul.list-inline > [class^="Select"] {
     display: inline-block;
-    min-width: 120px;
+    min-width: 80px;
 }
 ul.list-inline .Select {
     float: left;
-    height: 28px;
 }
 ul.list-inline .Select-control {
     background: transparent !important;
@@ -64,4 +104,7 @@ ul.list-inline .Select-input {
 
 ul.list-inline .Select-arrow-zone {
     float: right;
+}
+.Select-placeholder, .Select--single > .Select-control .Select-value {
+    line-height: inherit!important;
 }

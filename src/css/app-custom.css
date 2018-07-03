@@ -144,7 +144,7 @@ body{
     display: inline-block;
     margin-top: 4px;
     padding: 11px 20px;
-    border-radius: 3px;
+    border-radius: var(--sidebar-border-radius);
     background-color: var(--content-button-bg-color);
     -webkit-transition: background-color 200ms ease;
     transition: background-color 200ms ease;
@@ -162,7 +162,7 @@ body{
     float: left;
     margin-bottom: 30px;
     border-radius: var(--reacttabs-border-radius);
-    background-color: var(--content-search-result-bg-color);
+    background-color: var(--content-tab-pane-bg-color);
     box-shadow: var(--content-search-result-box-shadow);
     font-family: var(--font-1);
     -webkit-font-smoothing: antialiased;
@@ -170,6 +170,12 @@ body{
     color: var(--content-search-result-color);
     width: 100%;
   }
+
+  .react-tabs .search-result {
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+  }
+  
   .search-result h1{
     margin-bottom: 7px;
     font-family: var(--font-2);
@@ -454,6 +460,27 @@ body{
   .fb-comments iframe {
     padding: 20px;
   }
+
+  .content > .react-autosuggest__container > input.react-autosuggest__input{
+    width:100% !important;
+    max-width: 100% !important;
+  }
+
+  .center{
+    text-align: center;
+  }
+  .pointer{
+    cursor: pointer;
+  }
+  /* toltip width */
+  .popup-content{
+    width:300px !important;
+  } 
+
+  .save-search-container {
+    text-align:center;
+  }
+
   .react-datepicker-wrapper{
     width: 100% !important;
   }
@@ -470,4 +497,4 @@ body{
   }
   .margin-bottom-none{
     margin-bottom: 0 !important;
-  }
+}

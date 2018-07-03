@@ -26,15 +26,24 @@
     .sidebar-col.col-3{
       display:block;
     }
+
+    .react-autosuggest__input {
+      max-width: calc(100% - 50px);
+    }
     .nav-brand{
-      margin:0 auto;
-      display: block;
+      /* margin:0 auto; */
+      display: var(--navbrand-display-994);
       text-align: center;
+      margin-top: var(--navbrand-mtop-994);
     }
     .logotype{
       display: block;
       text-align: center;
     }
+    .nav-brand .logotype {
+      display: initial;
+      text-align: center;
+  }
     .col-6{
       -webkit-box-flex: 0; 
       -webkit-flex: 0 0 100%; 
@@ -44,6 +53,19 @@
     }
     .search-form .div-block.w-clearfix{
       margin: 1% auto 0
+    }
+
+    .login {
+      line-height: var(--login-lineht-994);
+      font-size: var(--login-font-size-994);
+    }
+
+    .bell {
+      width: 1.4em;
+    }
+
+    .nav-brand, .logo-img {
+      float: var(--logo-img-float-994);
     }
   
   }
@@ -61,6 +83,14 @@
   }*/
   
   @media all and (max-width: 767px){
+
+    .dropdown.lang-list {
+      display: inline;
+    }
+
+    ul.list-inline {
+      display: none;
+    }
   
     .section .container{
       padding: 0
@@ -84,15 +114,18 @@
     .navigation-bar .container{
       height: auto
     }
-    .nav-brand,
     .logotype{
       float: none;
       text-align: center;
-      margin:0;
+    }
+    .nav-brand{
+      float: var(--navbrand-float-767);
+      text-align: center;
     }
     .nav-brand .logo-img{
       display: block;
       margin:0 auto;
+      float: initial;
     }
     .search-form-container,
     .main-col.col-9,{
@@ -119,7 +152,6 @@
     }
 
     .sidebar-col.col-3 .white-wrapper {
-      background: #e0ddd7;
       height: 100%;
     }
      
@@ -133,7 +165,7 @@
     }
     .search-form .w-button{
       padding:1%;
-      width:10%;
+      /* width:10%; */
     }
      
     .text-field-2{
@@ -238,6 +270,11 @@
     .document-download li{
       width:32%;
     }
+
+    .lang-switcher-wrapper {
+      left: 200px;
+    }
+    
   }
 
 @media all and (min-width: 768px){

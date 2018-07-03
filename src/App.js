@@ -16,7 +16,9 @@ class App extends Component {
   componentDidMount() {
     if (process.env.NODE_ENV === 'development') {
       const path =  './css/themes/' + process.env.REACT_APP_THEME + '/vars.css';
-      import(`${path}`);
+      const fontPath =  './css/themes/' + process.env.REACT_APP_THEME + '/fonts.css';
+      import(`${path}`); 
+      import(`${fontPath}`);     
     }
   }
 

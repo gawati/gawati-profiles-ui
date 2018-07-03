@@ -9,9 +9,11 @@
   /* Overrides */
 
   /* Fonts */
-    --font-1: Montserrat, sans-serif;
+    --font-1: Helvetica, sans-serif;
     --font-2: Georgia, Times, 'Times New Roman', serif;
-    --font-3: Helvetica, sans-serif;
+    --font-3: Montserrat, sans-serif;
+    --small-heading-font: Montserrat, sans-serif;
+    --react-tabs-tab-font: Montserrat, sans-serif;
   /* Fonts */
 
   /* app-custom */
@@ -23,7 +25,6 @@
       --content-button-bg-color: #483332;
       --content-button-color: #fff;
       --content-tab-pane-bg-color: #fff;
-      --content-search-result-bg-color: #fff;
       --content-search-result-box-shadow: 0 0 0 1px rgba(0, 0, 0, .06);
       --content-search-result-color: rgba(51, 51, 51, .67);
       --content-search-result-h1-color: #74737a;
@@ -78,9 +79,10 @@
   --reacttabs-hover-bg-color: initial;
   --reacttabs-hover-color: initial;
   --reacttabs-selected-border: 1px solid rgb(170, 170, 170);
+  --reacttab-panel-border: none;
 
   /* RecentDocs */
-  --feed-container-heading-bg-color: white;
+  
 
   /* Section */
   --section-bg-color: #e0ddd7; /* SIG */
@@ -112,13 +114,58 @@
   --logo-img: url("../../themes/default/assets/logo.png");
   --logo-color: #7a737a;
   --logo-color2: #7a737a;
+  --logo-top-margin: 50px;
+  --logo-left-margin: 30px;
+  --logo-img-height: 50px;
+  --logo-h1-mbottom: initial;
+  --heading-alongside-search: none;
+  --heading-alongside-logo: inline-block;
+  --second-header-row-display: initial;
+  --search-input-height: 40px;
+  --second-header-text-align: initial;
+  --logotype-h1-bg: white;
+  --logotype-h1-height: 20%;
+  --logotype-h1-width: auto;
+  --logotype-h1-lineht: auto;
+  --logotype-h1-font: auto;
+  --logo-h1-font-size: 1.4rem;
+  --logo-h2-font-size: 1.2rem;
+  --navbrand-h1-display: block;
+  --logo-h2-mleft: 0px;
+  --logo-img-float-994: none;
+  --logo-img-width: 90px;
+
+  --search-form-container-mtop: 60px;
+  --search-form-container-mbottom: 20px;
+
+  --version-font-size: inherit;
+  --version-color: lightgrey;
 
   --languageswitcher-highlight-bg-color: #e0ddd7;
   --languageswitcher-bg-color: #e0ddd7;
   --languageswitcher-color: #a9a9a9;
+  --lang-switch-font-size: 12px;
 
   /* Media */
   --sidebar-left-margin: auto;
   --sidebar-right-margin: 0px;
+  --navbrand-mtop-994: 30px;
+  --navbrand-display-994: block;
+  --sidecol-mwidth-994: auto;
+  --search-form-side-col-mleft-994: auto;
+  --search-form-side-col-mtop-767: auto;
+  --search-form-side-col-mtop-994: auto;
+  --login-lineht-994: auto;
+  --login-font-size-994: 1em;
+  --login-font-size: 12px;
+  --navbrand-float-767: none;
+  --side-col-mleft-767: auto;
  
+}
+
+
+@media all and (max-width: 767px){
+  .sidebar-col.col-3 .white-wrapper {
+    background: #e0ddd7;
+  }
 }
