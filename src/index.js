@@ -54,7 +54,7 @@ function initSSO(){
         },
         // onError callback
         (error) => {
-            alert("There was an error while initializing login", error);
+            //alert("There was an error while initializing login", error);
             console.log(" initializing login error ", error);
         }
     );
