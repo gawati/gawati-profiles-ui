@@ -1,0 +1,52 @@
+{
+    "default": {
+        "home": {
+            "cName": "col-lg-7 col-md-12 col-sm-12 col-xs-12",
+            "cName2": "col-lg-11 col-md-8 col-sm-12 col-xs-12 offset-lg-1 offset-md-2 offset-xs-0 offset-sm-0"
+        },
+        "notHome": {
+            "cName": "col-lg-7 col-md-12 col-sm-12 col-xs-12",
+            "cName2": "col-lg-11 col-md-8 col-sm-12 col-xs-12 offset-lg-1 offset-md-2 offset-xs-0 offset-sm-0"
+        }
+    },
+    "default2": {
+        "home": {
+            "cName": "col-lg-11 offset-lg-2 col-md-12 col-sm-12 col-xs-12",
+            "cName2": "col-11"
+        },
+        "notHome": {
+            "cName": "col-lg-6 offset-lg-1 col-md-8 col-sm-8 col-xs-12 offset-md-2 offset-sm-2",
+            "cName2": "col-12"
+        }
+    },
+    "default3": {
+        "home": {
+            "cName": "col-lg-7 col-md-12 col-sm-12 col-xs-12",
+            "cName2": "col-lg-11 col-md-8 col-sm-12 col-xs-12 offset-lg-1 offset-md-2 offset-xs-0 offset-sm-0"
+        },
+        "notHome": {
+            "cName": "col-lg-7 col-md-12 col-sm-12 col-xs-12",
+            "cName2": "col-lg-11 col-md-8 col-sm-12 col-xs-12 offset-lg-1 offset-md-2 offset-xs-0 offset-sm-0"
+        }
+    },
+    "default2-op2": {
+        "home": {
+            "cName": "col-lg-11 offset-lg-2 col-md-12 col-sm-12 col-xs-12",
+            "cName2": "col-11"
+        },
+        "notHome": {
+            "cName": "col-lg-6 offset-lg-3 col-md-8 col-sm-8 col-xs-12 offset-md-2 offset-sm-2",
+            "cName2": "col-12"
+        }
+    },
+    "ke": {
+        "home" :{
+            "cName": "col-lg-7 col-md-12 col-sm-12 col-xs-12",
+            "cName2": "col-lg-11 col-md-8 col-sm-12 col-xs-12 offset-lg-1 offset-md-2 offset-xs-0 offset-sm-0"
+        },
+        "notHome" :{
+            "cName": "col-lg-7 col-md-12 col-sm-12 col-xs-12",
+            "cName2": "col-lg-11 col-md-8 col-sm-12 col-xs-12 offset-lg-1 offset-md-2 offset-xs-0 offset-sm-0"
+        }
+    }
+}

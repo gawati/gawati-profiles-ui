@@ -6,6 +6,7 @@ import './polyfills';
 /* import BrowserRouter from 'react-router-dom' */
 import { BrowserRouter } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
+import  ErrorBoundary from './components/ErrorBoundary.js';
 import './i18n';
 
 import {apiUrl} from './api';
@@ -24,7 +25,9 @@ import { isAuthEnabled } from './utils/generalhelper';
 function appRender() {
     ReactDOM.render(
         <BrowserRouter>
-            <App />
+           <ErrorBoundary>
+                <App />
+            </ErrorBoundary>
         </BrowserRouter>,
         document.getElementById('root')
     );
@@ -54,7 +57,7 @@ function initSSO(){
         },
         // onError callback
         (error) => {
-            //alert("There was an error while initializing login", error);
+            alert("There was an error while initializing login", error);
             console.log(" initializing login error ", error);
         }
     );
