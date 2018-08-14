@@ -2,8 +2,8 @@
   "name": "gawati-user-profiles-ui",
   "version": "1.0.2",
   "private": true,
-  "proxy": "http://localhost",
-  "xhomepage": "http://localhost:9004",
+  "proxy": "http://data.local",
+  "xhomepage": "http://localhost:9000",
   "homepage": "http://localhost",
   "dependencies": {
     "axios": "0.18.0",
