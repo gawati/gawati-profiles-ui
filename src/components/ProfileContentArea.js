@@ -189,7 +189,7 @@ class ProfileContentArea extends React.Component {
         .then(response => {
             console.log(response);
             if(response.data.success==="true"){
-                toast.success("Social Media requirement updated successfully");
+                toast.success("Social Media requirement updated successfully. Please refresh portal home page to reload settings.");
             }else{
                 toast.error("There is some problem. Kindly try again");
             }
