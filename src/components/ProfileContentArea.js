@@ -6,9 +6,11 @@ import {getAllLangCodes, getAllCountryCodes } from '../utils/generalhelper';
 import EditableLabel from '../commons/EditableLabel';
 import {apiGetCall} from '../api';
 import { ToastContainer, toast } from 'react-toastify';
-import { Col, FormGroup, Label, Input, FormText} from 'reactstrap';
+import { Col, FormGroup, Label, Input, FormText, Button} from 'reactstrap';
 import AvatarEditor from 'react-avatar-editor';
 import Select from 'react-select';
+import FontAwesome from 'react-fontawesome';
+import 'font-awesome/css/font-awesome.css';
 
 import {getUserProfile } from '../utils/GawatiAuthClient';
 
@@ -41,6 +43,7 @@ class ProfileContentArea extends React.Component {
         this.changeLanguage = this.changeLanguage.bind(this);
         this.changeCountry = this.changeCountry.bind(this);
         this.onImageChange = this.onImageChange.bind(this);
+        this.onSocialMediaChange = this.onSocialMediaChange.bind(this);
         this.state = {
             loading: true,
             firstName:'',
@@ -171,8 +174,33 @@ class ProfileContentArea extends React.Component {
         }); 
     }
 
-    onImageChange(e){
+    onSocialMediaChange(e) {
+        debugger;
+        const t = !this.state.socialMedia;
+        this.setState({socialMedia: t})
+        let apiProfile = apiGetCall(
+            'profile', {}
+        );
 
+        axios.post(apiProfile, {
+            socialMedia: t,
+            userName: this.state.userName
+        })
+        .then(response => {
+            console.log(response);
+            if(response.data.success==="true"){
+                toast.success("Social Media requirement updated successfully. Please refresh portal home page to reload settings.");
+            }else{
+                toast.error("There is some problem. Kindly try again");
+            }
+        })
+        .catch(function(error) {
+            console.log('There is some error' + error);
+            toast.error("There is some problem. Kindly try again");
+        }); 
+    }
+
+    onImageChange(e){
     	let apiProfile = apiGetCall(
             'profile', {}
         );
@@ -222,7 +250,14 @@ class ProfileContentArea extends React.Component {
                 }
             }) 
             .then(response => {
-                this.setState({ nickName: response.data.data.nickName, phone: response.data.data.phone, country: response.data.data.country, language: response.data.data.language, dpUrl: this.imageFullUrl(response.data.data.dpUrl)});
+                this.setState({ 
+                    nickName: response.data.data.nickName, 
+                    phone: response.data.data.phone, 
+                    country: response.data.data.country, 
+                    language: response.data.data.language, 
+                    dpUrl: this.imageFullUrl(response.data.data.dpUrl),
+                    socialMedia: response.data.data.socialMedia    
+                });
             })
             .catch(function(error) {
                 console.log('There is some error' + error);
@@ -253,7 +288,6 @@ class ProfileContentArea extends React.Component {
         for(let i=0; i<allCountries.length;i++){
             countryArray.push({value:allCountries[i].name, label:allCountries[i].name});
         }
-
         return (
             <div className="container-fluid">
             	<div className="row col-12"><h6>My Profile</h6></div>
@@ -270,7 +304,7 @@ class ProfileContentArea extends React.Component {
                             />
                             <Input sm={10} type="file" name="file" id="imageFile" onChange={this.onImageChange}/>
                             <FormText color="muted">
-                                Uppload new image to change the profile image.
+                                Upload new image to change the profile image.
                             </FormText>
                         </Col>
                     </FormGroup>
@@ -278,7 +312,7 @@ class ProfileContentArea extends React.Component {
                     <ProfileContentInfo label="Last Name" value={this.state.lastName} />
                     <ProfileContentInfo label="User Name" value={this.state.userName} />
                     <ProfileContentInfo label="Email" value={this.state.email} />
-                    <EditableLabel text={this.state.nickName} label="Nick Name"
+                    <EditableLabel text={this.state.nickName || ''} label="Nick Name"
                         labelClassName='nicknameClass'
                         inputClassName='nicknameClass'
                         inputWidth='200px'
@@ -287,7 +321,7 @@ class ProfileContentArea extends React.Component {
                         onFocus={this.nickNameFocus}
                         onFocusOut={this.nickNameFocusOut}
                     />
-                    <EditableLabel text={this.state.phone} label="Telephone Number"
+                    <EditableLabel text={this.state.phone || ''} label="Telephone Number"
                         labelClassName='phoneClass'
                         inputClassName='phoneClass'
                         inputWidth='200px'
@@ -317,6 +351,17 @@ class ProfileContentArea extends React.Component {
                                 options={langArray}
                               />
                         </Col>
+                    </FormGroup>
+                    <FormGroup row>
+                        <Label for="label" sm={2}>Social Media</Label>
+                        {this.state.socialMedia === true?
+                        (<Col sm={10}><Button color="primary" size="sm" onClick={() => this.onSocialMediaChange()}>
+                          <FontAwesome name="check" /></Button> Integrated social media plugins on Portal</Col>)
+                        :
+                        (<Col sm={10}><Button outline color="secondary" size="sm" onClick={() => this.onSocialMediaChange()}>X</Button>
+                            &nbsp; Click to integrate with Facebook Comments, Likes and Share.
+                            </Col>
+                        )}
                     </FormGroup>
                 </div>
             </div>
